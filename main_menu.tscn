@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://4aaql8kdi01a"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_jb4eo"]
+
+[sub_resource type="FontVariation" id="FontVariation_fg0qd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o5gp"]
+font = SubResource("FontVariation_fg0qd")
+font_size = 40
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_jb4eo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="LottoGenerator" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.582
+anchor_right = 0.438
+anchor_bottom = 0.709
+offset_left = -0.319942
+offset_top = -0.199982
+offset_right = -233.512
+offset_bottom = -45.4
+scale = Vector2(2.46606, 2.46606)
+text = "LOTTO GENERATOR"
+
+[node name="DiceGame" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.582
+anchor_right = 0.947
+anchor_bottom = 0.709
+offset_left = 0.463928
+offset_top = -0.199982
+offset_right = -232.728
+offset_bottom = -45.4
+scale = Vector2(2.46606, 2.46606)
+text = "DICE GAME"
+
+[node name="Freeman\'s Game Collection" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.273
+anchor_top = 0.248
+anchor_right = 0.759
+anchor_bottom = 0.34
+offset_left = -2.552
+offset_top = 0.199997
+offset_right = -3.21606
+text = "FREEMAN'S PARTY GAMES
+"
+label_settings = SubResource("LabelSettings_0o5gp")
+
+[node name="Version" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.273
+anchor_top = 0.248
+anchor_right = 0.759
+anchor_bottom = 0.34
+offset_left = 105.448
+offset_top = 373.2
+offset_right = -144.216
+offset_bottom = 373.0
+text = "Version 0.0.1"
+label_settings = SubResource("LabelSettings_0o5gp")
+
+[connection signal="pressed" from="LottoGenerator" to="." method="_on_lotto_generator_pressed"]
+[connection signal="pressed" from="DiceGame" to="." method="_on_dice_game_pressed"]

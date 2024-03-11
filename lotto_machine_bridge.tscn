@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dln2f077p82t2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cc580"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnocn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_unpmp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqqiu"]
+albedo_color = Color(0.486275, 0.32549, 1, 1)
+
+[node name="Bridge" type="Node3D"]
+transform = Transform3D(0.969621, 0.244614, 0, -0.244614, 0.969621, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(5.51322, 4.65661e-09, 0, -5.96046e-07, 0.0598958, 0, 0, 0, 0.682867, 0, 0, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_cc580")
+material = SubResource("StandardMaterial3D_mnocn")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(5.71492, 0, 0, 3.57628e-07, 0.440884, 0, 0, 0, 0.0693975, -0.0517293, 0.205049, 0.347344)
+use_collision = true
+mesh = SubResource("BoxMesh_unpmp")
+material = SubResource("StandardMaterial3D_uqqiu")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(5.71492, 0, 0, 1.19209e-07, 0.440884, 0, 0, 0, 0.0693975, -0.0591157, 0.234328, -0.333474)
+use_collision = true
+mesh = SubResource("BoxMesh_unpmp")
+material = SubResource("StandardMaterial3D_uqqiu")

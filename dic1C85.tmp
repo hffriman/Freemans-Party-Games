@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://duphwy5wms0n7"]
+
+[ext_resource type="Script" path="res://dice.gd" id="1_naeij"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xb5ho"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvts3"]
+albedo_color = Color(1, 0.152941, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xuy3c"]
+material = SubResource("StandardMaterial3D_fvts3")
+
+[node name="DiceRigidBody" type="RigidBody3D"]
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_naeij")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xb5ho")
+
+[node name="DiceObject" type="CSGBox3D" parent="."]
+
+[node name="Number1" type="CSGBox3D" parent="DiceObject"]
+transform = Transform3D(0.413219, 0, 0, 0, 0.413219, 0, 0, 0, 0.413219, 0, 0.404109, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xuy3c")

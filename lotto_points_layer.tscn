@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7bxhixmx88w0"]
+
+[ext_resource type="Script" path="res://lotto_points_layer.gd" id="1_b7y2l"]
+[ext_resource type="PackedScene" uid="uid://dws77et1cqmou" path="res://lotto_ball_icon.tscn" id="2_r31mn"]
+
+[node name="lotto_points_layer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b7y2l")
+
+[node name="lotto_points_ui" type="CanvasLayer" parent="."]
+offset = Vector2(0, -2.505)
+transform = Transform2D(1, 0, 0, 1, 0, -2.505)
+
+[node name="lotto_ball_icon" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
+position = Vector2(-88, 43.5)
+
+[node name="lotto_ball_icon2" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
+position = Vector2(-88, 120)
+
+[node name="lotto_ball_icon3" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
+position = Vector2(-88, 196.005)
+
+[node name="lotto_ball_icon4" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
+position = Vector2(-88, 273.005)
+
+[node name="lotto_ball_icon5" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
+position = Vector2(-88, 350.51)
+
+[node name="lotto_ball_icon6" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
+position = Vector2(-88, 427.51)
+
+[node name="lotto_ball_icon7" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
+position = Vector2(-88, 504.505)

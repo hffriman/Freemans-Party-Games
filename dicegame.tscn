@@ -1,0 +1,416 @@
+[gd_scene load_steps=25 format=3 uid="uid://b23wlc38ij0fk"]
+
+[ext_resource type="Script" path="res://dicegame.gd" id="1_rvvc2"]
+[ext_resource type="PackedScene" uid="uid://duphwy5wms0n7" path="res://dice.tscn" id="2_niwhf"]
+[ext_resource type="Script" path="res://Roof.gd" id="3_yowlc"]
+[ext_resource type="PackedScene" uid="uid://crh1xx1v0fqt3" path="res://operator_card.tscn" id="4_a2u4c"]
+[ext_resource type="Script" path="res://score_board.gd" id="4_i5627"]
+[ext_resource type="Texture2D" uid="uid://cwihc4dgalqib" path="res://dice_board_hf.png" id="5_hjavp"]
+[ext_resource type="Script" path="res://final_phase_layer.gd" id="5_y0l16"]
+[ext_resource type="PackedScene" uid="uid://dykjkek2e2j3" path="res://table.dae" id="8_q0fd1"]
+[ext_resource type="Texture2D" uid="uid://bhyflkpl4efon" path="res://table_pexels-pixabay-301717.jpg" id="9_4tjfd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ckbmy"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ybbke"]
+sky_material = SubResource("ProceduralSkyMaterial_ckbmy")
+
+[sub_resource type="Environment" id="Environment_1ic1b"]
+background_mode = 2
+sky = SubResource("Sky_ybbke")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ox4mg"]
+albedo_color = Color(0.262745, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1dao2"]
+material = SubResource("ORMMaterial3D_ox4mg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbeqe"]
+albedo_texture = ExtResource("9_4tjfd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_t8lip"]
+
+[sub_resource type="FontVariation" id="FontVariation_xf6l8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pgk1s"]
+font = SubResource("FontVariation_xf6l8")
+font_size = 131
+
+[sub_resource type="FontVariation" id="FontVariation_8t61l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xg267"]
+font = SubResource("FontVariation_8t61l")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3h28u"]
+
+[sub_resource type="FontVariation" id="FontVariation_jkk4e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mf5my"]
+font = SubResource("FontVariation_jkk4e")
+font_size = 55
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amy7m"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[node name="DiceGame" type="Node3D"]
+script = ExtResource("1_rvvc2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ic1b")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.461547, 0.887116, 0, -0.887116, 0.461547, 0.142041, 8.37295, 8.29837)
+
+[node name="Dice1" parent="." instance=ExtResource("2_niwhf")]
+transform = Transform3D(-0.0569869, 0.705458, -0.706457, -0.0106285, -0.707995, -0.706137, -0.998318, -0.032732, 0.0478444, -2.899, 4.5, 5.147)
+
+[node name="Dice2" parent="." instance=ExtResource("2_niwhf")]
+transform = Transform3D(-0.0569868, 0.705458, -0.706456, -0.0106285, -0.707995, -0.706137, -0.998318, -0.032732, 0.0478444, 2.996, 4.5, 5.147)
+
+[node name="Roof" type="CSGBox3D" parent="."]
+transform = Transform3D(20.6967, 0, 0, 0, 0.0934659, 0, 0, 0, 44.4366, 0.774786, 15.5191, -3.01341)
+visible = false
+use_collision = true
+script = ExtResource("3_yowlc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roof"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="table" type="Node3D" parent="."]
+
+[node name="table_object" parent="table" instance=ExtResource("8_q0fd1")]
+transform = Transform3D(-7.51299e-08, 0, 1.60448, 0, 1.60448, 0, -1.71877, 0, -7.01339e-08, 0.393045, -2.39067, 1.22731)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="table/table_object"]
+transform = Transform3D(18.8531, 0, 0, 0, -0.476378, 0, 0, 0, 13.0201, 0, 0.556396, 0)
+material_override = SubResource("StandardMaterial3D_kbeqe")
+mesh = SubResource("BoxMesh_t8lip")
+
+[node name="table_floor" type="CSGBox3D" parent="table"]
+transform = Transform3D(20.9306, 0, 0, 0, 0.1023, 0, 0, 0, 39.1098, 0.390859, -1.09746, 0.986593)
+visible = false
+use_collision = true
+size = Vector3(1.00903, 1, 1)
+script = ExtResource("3_yowlc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="table/table_floor"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(20.6967, 0, 0, 0, 15.8536, 0, 0, 0, 0.50233, 0, 5.53204, -16.3709)
+visible = false
+use_collision = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="Wall4" type="CSGBox3D" parent="."]
+transform = Transform3D(8.27868, 0, 0, 0, 13.9947, 0, 0, 0, 0.25686, -0.00189468, 5.53204, 6.2707)
+visible = false
+use_collision = true
+size = Vector3(2.88889, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="Wall5" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.8917e-07, 0, 0.25686, 0, 13.9947, 0, -11.1909, 0, -1.12277e-08, -0.00189468, 5.53204, 1.50379)
+visible = false
+use_collision = true
+size = Vector3(2.88889, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall5"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="Wall6" type="CSGBox3D" parent="."]
+transform = Transform3D(8.27868, 0, 0, 0, 13.9947, 0, 0, 0, 0.25686, -0.00189468, 5.53204, -5.15609)
+visible = false
+use_collision = true
+size = Vector3(2.88889, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall6"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="Wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.08077e-06, 0, -0.50233, 0, 15.8536, 0, 47.6024, 0, -2.19575e-08, 8.49175, 5.53204, -3.45923)
+visible = false
+use_collision = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="Wall3" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.08077e-06, 0, -0.50233, 0, 15.8536, 0, 47.6024, 0, -2.19575e-08, -9.50825, 5.53204, -3.45923)
+visible = false
+use_collision = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+mesh = SubResource("BoxMesh_1dao2")
+
+[node name="DiceThrowUI" type="CanvasLayer" parent="."]
+
+[node name="DiceThrow1" type="Node2D" parent="DiceThrowUI"]
+position = Vector2(130, 493)
+
+[node name="DiceButton1" type="Button" parent="DiceThrowUI/DiceThrow1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.36667, 2.36667)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "THROW DICE 1"
+
+[node name="DiceThrow2" type="Node2D" parent="DiceThrowUI"]
+position = Vector2(761, 493)
+
+[node name="DiceButton2" type="Button" parent="DiceThrowUI/DiceThrow2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -15.0
+offset_right = 29.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.36667, 2.36667)
+size_flags_vertical = 8
+text = "THROW DICE 2
+"
+
+[node name="ScoreLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreBoard1" type="Node2D" parent="ScoreLayer"]
+position = Vector2(-5, -967)
+scale = Vector2(0.93, 1.519)
+script = ExtResource("4_i5627")
+
+[node name="DiceBoardHf" type="Sprite2D" parent="ScoreLayer/ScoreBoard1"]
+position = Vector2(283.889, 315.01)
+scale = Vector2(0.969803, 0.981377)
+texture = ExtResource("5_hjavp")
+
+[node name="ScoreText1" type="Label" parent="ScoreLayer/ScoreBoard1"]
+offset_left = 150.0
+offset_top = 302.831
+offset_right = 296.0
+offset_bottom = 482.831
+scale = Vector2(1.81358, 1.07768)
+text = "12"
+label_settings = SubResource("LabelSettings_pgk1s")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreBoard2" type="Node2D" parent="ScoreLayer"]
+position = Vector2(501, -967)
+scale = Vector2(0.93, 1.519)
+script = ExtResource("4_i5627")
+
+[node name="DiceBoardHf" type="Sprite2D" parent="ScoreLayer/ScoreBoard2"]
+position = Vector2(283.889, 315.01)
+scale = Vector2(0.969803, 0.981377)
+texture = ExtResource("5_hjavp")
+
+[node name="ScoreText2" type="Label" parent="ScoreLayer/ScoreBoard2"]
+offset_left = 154.444
+offset_top = 302.831
+offset_right = 300.444
+offset_bottom = 482.831
+scale = Vector2(1.81358, 1.07768)
+text = "12"
+label_settings = SubResource("LabelSettings_pgk1s")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FinalPhaseLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_y0l16")
+
+[node name="GuessNumberLayer" type="Node2D" parent="FinalPhaseLayer"]
+visible = false
+position = Vector2(112, 554)
+scale = Vector2(2.04808, 2.45745)
+
+[node name="WriteGuessNumber" type="LineEdit" parent="FinalPhaseLayer/GuessNumberLayer"]
+offset_left = 260.244
+offset_top = -23.1948
+offset_right = 327.306
+offset_bottom = 7.80523
+scale = Vector2(1.08, 0.949)
+placeholder_text = "0-12"
+
+[node name="GuessNumberLabel" type="Label" parent="FinalPhaseLayer/GuessNumberLayer"]
+offset_left = -24.1614
+offset_top = -19.8116
+offset_right = 232.839
+offset_bottom = 3.18837
+text = "Guess a number between 0 and 12:"
+label_settings = SubResource("LabelSettings_xg267")
+
+[node name="EnterNumberButton" type="Button" parent="FinalPhaseLayer/GuessNumberLayer"]
+offset_left = 342.76
+offset_top = -23.1948
+offset_right = 400.76
+offset_bottom = 7.80523
+scale = Vector2(1.3319, 0.949461)
+text = "ENTER"
+
+[node name="ResultLayer" type="Node2D" parent="FinalPhaseLayer"]
+visible = false
+position = Vector2(-5, 539)
+scale = Vector2(2.04808, 2.45745)
+
+[node name="OperatorCards" type="Node2D" parent="FinalPhaseLayer/ResultLayer"]
+position = Vector2(67.8684, -10.987)
+scale = Vector2(0.69921, 0.69921)
+
+[node name="OperatorCard1" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+offset_left = 178.216
+offset_top = -209.979
+offset_right = 178.216
+offset_bottom = -209.979
+
+[node name="OperatorCard2" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+offset_left = 289.051
+offset_top = -209.979
+offset_right = 289.051
+offset_bottom = -209.979
+
+[node name="OperatorCard3" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+offset_left = 177.727
+offset_top = -135.795
+offset_right = 177.727
+offset_bottom = -135.795
+
+[node name="OperatorCard4" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+offset_left = 288.563
+offset_top = -134.631
+offset_right = 288.563
+offset_bottom = -134.631
+
+[node name="OperatorCard5" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+offset_left = 233.389
+offset_top = -173.35
+offset_right = 233.389
+offset_bottom = -173.35
+
+[node name="YouGuessedLabel" type="Label" parent="FinalPhaseLayer/ResultLayer"]
+offset_left = 14.6479
+offset_top = -4.88311
+offset_right = 281.648
+offset_bottom = 18.1169
+text = "You guessed: 12 "
+
+[node name="FinalScore" type="Label" parent="FinalPhaseLayer/ResultLayer"]
+offset_left = 351.06
+offset_top = -4.88311
+offset_right = 618.061
+offset_bottom = 18.1169
+text = "Final Score: "
+
+[node name="ChooseCard" type="Label" parent="FinalPhaseLayer/ResultLayer"]
+offset_left = 153.314
+offset_top = -67.5497
+offset_right = 420.315
+offset_bottom = -44.5497
+text = "Choose one operator card"
+
+[node name="GameOverLayer" type="Node2D" parent="FinalPhaseLayer"]
+visible = false
+position = Vector2(-5, 539)
+scale = Vector2(2.04808, 2.45745)
+
+[node name="Background" type="Sprite2D" parent="FinalPhaseLayer/GameOverLayer"]
+position = Vector2(253.408, -100.918)
+scale = Vector2(500.957, 245.783)
+texture = SubResource("CanvasTexture_3h28u")
+
+[node name="YourGuess" type="Label" parent="FinalPhaseLayer/GameOverLayer"]
+offset_left = 21.9718
+offset_top = -205.091
+offset_right = 417.972
+offset_bottom = -54.0903
+scale = Vector2(0.656431, 0.560269)
+text = "You Guessed: 10"
+label_settings = SubResource("LabelSettings_mf5my")
+horizontal_alignment = 1
+
+[node name="Result" type="Label" parent="FinalPhaseLayer/GameOverLayer"]
+offset_left = 23.4366
+offset_top = -155.446
+offset_right = 512.437
+offset_bottom = -4.44653
+scale = Vector2(0.656431, 0.560269)
+text = "Result: 12 + 12 = 22"
+label_settings = SubResource("LabelSettings_mf5my")
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="FinalPhaseLayer/GameOverLayer"]
+offset_left = 23.9248
+offset_top = -80.5713
+offset_right = 344.924
+offset_bottom = 70.4287
+scale = Vector2(0.656431, 0.560269)
+text = "ALMOST!!"
+label_settings = SubResource("LabelSettings_mf5my")
+
+[node name="Retry" type="Button" parent="FinalPhaseLayer/GameOverLayer"]
+offset_left = 224.112
+offset_top = -24.8225
+offset_right = 327.112
+offset_bottom = 6.17752
+text = "Retry"
+
+[node name="BackToMenu" type="Button" parent="FinalPhaseLayer/GameOverLayer"]
+offset_left = 374.009
+offset_top = -25.2294
+offset_right = 477.009
+offset_bottom = 5.7706
+text = "Main Menu"
+
+[node name="housewalls" type="Node3D" parent="."]
+
+[node name="wall" type="CSGBox3D" parent="housewalls"]
+transform = Transform3D(119.585, 0, 0, 0, 5.3679, 0, 0, 0, 178.794, 0.510923, -35.3885, 0)
+size = Vector3(1.08569, 1, 1)
+material = SubResource("StandardMaterial3D_amy7m")
+
+[node name="wall2" type="CSGBox3D" parent="housewalls"]
+transform = Transform3D(119.585, 0, 0, 0, 5.3679, 0, 0, 0, 178.794, 0.510923, 81.6286, -7.1795)
+size = Vector3(1.08569, 1, 0.926208)
+material = SubResource("StandardMaterial3D_amy7m")
+
+[node name="wall3" type="CSGBox3D" parent="housewalls"]
+transform = Transform3D(119.585, 0, 0, 0, -2.34638e-07, -178.794, 0, 5.3679, -7.81532e-06, 0.510923, 23.0071, -84.3325)
+size = Vector3(1.08569, 1, 0.70752)
+material = SubResource("StandardMaterial3D_amy7m")
+
+[node name="wall4" type="CSGBox3D" parent="housewalls"]
+transform = Transform3D(119.585, 0, 0, 0, -2.34638e-07, -178.794, 0, 5.3679, -7.81532e-06, 0.510923, 22.9744, 71.496)
+size = Vector3(1.08569, 1, 0.707886)
+material = SubResource("StandardMaterial3D_amy7m")
+
+[node name="wall5" type="CSGBox3D" parent="housewalls"]
+transform = Transform3D(-5.22724e-06, 5.3679, -7.81532e-06, 0, -2.34638e-07, -178.794, -119.585, -2.34638e-07, 3.41618e-13, 59.8798, 24.3712, -6.3831)
+size = Vector3(1.37616, 1, 0.692261)
+material = SubResource("StandardMaterial3D_amy7m")
+
+[node name="wall6" type="CSGBox3D" parent="housewalls"]
+transform = Transform3D(-5.22724e-06, 5.3679, -7.81532e-06, 0, -2.34638e-07, -178.794, -119.585, -2.34638e-07, 3.41618e-13, -62.6639, 24.3712, -5.94418)
+size = Vector3(1.37616, 1, 0.692261)
+material = SubResource("StandardMaterial3D_amy7m")
+
+[connection signal="pressed" from="DiceThrowUI/DiceThrow1/DiceButton1" to="." method="_on_dice_button_1_pressed"]
+[connection signal="pressed" from="DiceThrowUI/DiceThrow2/DiceButton2" to="." method="_on_dice_button_2_pressed"]
+[connection signal="pressed" from="FinalPhaseLayer/GuessNumberLayer/EnterNumberButton" to="." method="_on_enter_number_button_pressed"]
+[connection signal="pressed" from="FinalPhaseLayer/GuessNumberLayer/EnterNumberButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="FinalPhaseLayer/GameOverLayer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="FinalPhaseLayer/GameOverLayer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

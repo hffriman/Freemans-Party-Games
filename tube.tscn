@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch2u4au7yoj0m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk8xg"]
+albedo_color = Color(1, 0.341176, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bjh75"]
+material = SubResource("StandardMaterial3D_qk8xg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oaj2u"]
+albedo_color = Color(0.486275, 0.32549, 1, 1)
+
+[node name="Tube" type="Node3D"]
+transform = Transform3D(1.08, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.93054, 0, 0, 0, 3.35583, 0, 0, 0, 0.0847675, -0.00374699, 1.31951, -1.42872)
+mesh = SubResource("BoxMesh_bjh75")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.43865e-08, 0, 0.0847675, 0, 3.35583, 0, -1.93054, 0, -3.70531e-09, -0.956536, 1.31951, -0.502617)
+mesh = SubResource("BoxMesh_bjh75")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.43865e-08, 0, 0.0847675, 0, 3.35583, 0, -1.93054, 0, -3.70531e-09, 0.920101, 1.31951, -0.502617)
+mesh = SubResource("BoxMesh_bjh75")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.93054, 0, -7.41061e-09, 0, 3.35583, 0, 1.68773e-07, 0, -0.0847675, -0.00252128, 1.37844, 0.495327)
+mesh = SubResource("BoxMesh_bjh75")
+
+[node name="MeshInstance3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.44361, 0, 0, 0, 0.0586927, -1.91723, 0, 0.0709473, 1.58607, -0.00905418, -1.65752, -0.32941)
+use_collision = true
+size = Vector3(1, 1, 1.41211)
+material = SubResource("StandardMaterial3D_oaj2u")
+
+[node name="MeshInstance3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.240304, 0, 0, 0, 0.90563, -2.6978, 0, 1.09472, 2.23181, 0.831205, -1.27605, 0.257803)
+use_collision = true
+material = SubResource("StandardMaterial3D_oaj2u")
+
+[node name="MeshInstance3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.240304, 0, 0, 0, 0.90563, -2.6978, 0, 1.09472, 2.23181, -0.812304, -1.27605, 0.257803)
+use_collision = true
+material = SubResource("StandardMaterial3D_oaj2u")

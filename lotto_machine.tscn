@@ -1,0 +1,780 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjsl4muxk01cc"]
+
+[ext_resource type="Script" path="res://lotto_machine.gd" id="1_d5gn5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s8853"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6en55"]
+transparency = 1
+albedo_color = Color(0.454902, 1, 1, 0.117647)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ul8uh"]
+transparency = 1
+albedo_color = Color(0.454902, 1, 1, 0.117647)
+
+[node name="lotto_machine" type="Node3D"]
+transform = Transform3D(1.10953, 0, 0, 0, 1.10953, 0, 0, 0, 1.10953, 0, -0.00546962, 0)
+script = ExtResource("1_d5gn5")
+
+[node name="lotto_machine_sphere_parent" type="Node3D" parent="."]
+transform = Transform3D(1.34511, 0, 0, 0, 1.09833, 0, 0, 0, 1.38371, 0.0393218, 0.0273477, 0.0218783)
+
+[node name="sphere_plane2" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.14696, 0, 0, 0, 0.131758, 0.0650931, 0, -0.0650931, 0.131758, 0, -0.597856, 0.272943)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane3" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.14696, 0, 0, 0, 0.0763924, 0.125545, 0, -0.125545, 0.0763924, 0.00224304, -0.41118, 0.477217)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane4" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.14696, 0, 0, 0, 0.0105533, 0.146581, 0, -0.146581, 0.0105533, 0.00224304, -0.144245, 0.563998)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane6" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.146937, 0.00116216, -0.00235238, 0, 0.131758, 0.0650931, 0.0026238, 0.0650827, -0.131737, 0.00323546, -0.597856, -0.281657)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane7" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.146937, 0.00224145, -0.0013639, 0, 0.0763924, 0.125545, 0.0026238, 0.125525, -0.0763803, -0.00265428, -0.41118, -0.485857)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane8" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.146937, 0.00261703, -0.000188417, 0, 0.0105533, 0.146581, 0.0026238, 0.146557, -0.0105517, -0.00420365, -0.144245, -0.572625)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane9" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.14696, 0, 0, 0, -0.146958, 0.000836165, 0, -0.000836165, -0.146958, 0, 0.647106, -0.00607277)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane10" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.14696, 0, 0, 0, -0.132126, -0.0643424, 0, 0.0643424, -0.132126, 0, 0.581416, -0.279394)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane11" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.14696, 0, 0, 0, -0.0771055, -0.125108, 0, 0.125108, -0.0771055, 0.00224304, 0.395896, -0.484727)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane12" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.14696, 0, 0, 0, -0.0113872, -0.146518, 0, 0.146518, -0.0113872, 0.00224304, 0.129463, -0.573025)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane14" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.146937, 0.00116216, -0.00235238, 1.49288e-05, -0.131386, -0.0658416, -0.00262376, -0.0658313, 0.131364, 0.00323546, 0.578256, 0.275197)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane15" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.146937, 0.00224145, -0.0013639, 1.49291e-05, -0.075677, -0.125977, -0.00262376, -0.125957, 0.0756647, -0.00265428, 0.390416, 0.478332)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane16" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.146937, 0.00261703, -0.000188417, 1.49287e-05, -0.00971929, -0.146638, -0.00262376, -0.146615, 0.00971748, -0.00420365, 0.122996, 0.563579)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane18" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.00597466, -0.0650393, 0.131649, 0, 0.131758, 0.0650931, -0.146839, -0.00264636, 0.00535662, 0.277426, -0.597856, 0.00872961)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane19" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.00597466, -0.125441, 0.0763293, 0, 0.0763924, 0.125545, -0.146839, -0.00510402, 0.00310573, 0.481622, -0.41118, 0.0147931)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane20" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.00597466, -0.14646, 0.0105446, 0, 0.0105533, 0.146581, -0.146839, -0.00595923, 0.000429046, 0.568331, -0.144245, 0.0183212)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane22" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.00335207, 0.0650762, -0.131724, -1.46618e-10, 0.131758, 0.0650931, 0.146922, 0.00148473, -0.00300533, -0.276584, -0.597856, -0.0170504)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane23" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.00335207, 0.125512, -0.0763726, -7.81954e-11, 0.0763924, 0.125545, 0.146922, 0.0028636, -0.00174247, -0.480855, -0.41118, -0.0194673)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane24" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.00335207, 0.146543, -0.0105506, 0, 0.0105533, 0.146581, 0.146922, 0.00334342, -0.000240715, -0.567614, -0.144245, -0.0214468)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane26" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.00597466, 0.0642892, -0.132017, 0, -0.132126, -0.0643424, -0.146839, 0.00261584, -0.00537159, -0.274455, 0.581416, -0.0137257)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane27" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.00597466, 0.125005, -0.0770418, 2.61054e-16, -0.0771055, -0.125108, -0.146839, 0.00508626, -0.00313472, -0.479526, 0.395896, -0.0243146)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane28" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.00597466, 0.146397, -0.0113778, 0, -0.0113872, -0.146518, -0.146839, 0.0059567, -0.000462945, -0.567752, 0.129463, -0.0279044)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane31" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0085953, -0.125762, 0.0755467, 1.49291e-05, -0.075677, -0.125977, 0.146709, -0.00736039, 0.00443892, 0.482537, 0.390416, 0.0197318)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane32" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0085953, -0.146387, 0.00970178, 1.49287e-05, -0.00971929, -0.146638, 0.146709, -0.00857549, 0.000583325, 0.56765, 0.122996, 0.0247456)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane34" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.112037, -0.0421249, 0.0852671, 0, 0.131758, 0.0650931, -0.0951051, 0.0496246, -0.100447, 0.180964, -0.597856, -0.213763)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane35" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.112037, -0.0812461, 0.0494373, 1.78059e-10, 0.0763924, 0.125545, -0.0951051, 0.0957107, -0.0582388, 0.311449, -0.41118, -0.370945)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane36" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.112037, -0.0948596, 0.00682958, 0, 0.0105533, 0.146581, -0.0951051, 0.111748, -0.00804548, 0.36761, -0.144245, -0.437104)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane38" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.113717, 0.0412322, -0.0834601, -1.46618e-10, 0.131758, 0.0650931, 0.0930897, -0.0503688, 0.101954, -0.180411, -0.597856, 0.20695)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane39" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.113717, 0.0795244, -0.0483896, -2.15027e-10, 0.0763924, 0.125545, 0.0930896, -0.097146, 0.0591122, -0.30807, -0.41118, 0.366437)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane40" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.113717, 0.0928493, -0.00668485, 1.7104e-11, 0.0105533, 0.146581, 0.0930897, -0.113424, 0.00816613, -0.36304, -0.144245, 0.433588)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane41" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.112037, -0.000541123, -0.0951035, 2.78217e-12, -0.146958, 0.000836165, -0.0951051, 0.000637462, 0.112035, 0.000399115, 0.647106, -0.00105124)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane42" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.112037, 0.0416391, -0.0855054, 1.78059e-10, -0.132126, -0.0643424, -0.0951051, -0.0490523, 0.100728, -0.176481, 0.581416, 0.207319)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane43" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.112037, 0.0809635, -0.0498988, 1.78059e-10, -0.0771055, -0.125108, -0.0951051, -0.0953778, 0.0587824, -0.311071, 0.395896, 0.362405)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane44" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.112037, 0.0948192, -0.0073692, 6.8377e-11, -0.0113872, -0.146518, -0.0951051, -0.1117, 0.00868116, -0.368213, 0.129463, 0.429721)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane45" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.110321, -0.000541123, 0.0970887, 1.49287e-05, -0.146958, -0.000836032, 0.0970902, 0.000637461, -0.110319, -0.000115715, 0.647056, -0.0129744)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane46" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.110321, -0.0434887, 0.0868058, 1.49282e-05, -0.131386, -0.0658416, 0.0970902, 0.0494353, -0.0986251, 0.179956, 0.578256, -0.217575)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane47" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.110321, -0.0832219, 0.0500061, 1.49291e-05, -0.075677, -0.125977, 0.0970902, 0.0945747, -0.0568014, 0.315905, 0.390416, -0.368626)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane48" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.110321, -0.0968769, 0.0064323, 1.49288e-05, -0.00971929, -0.146638, 0.0970902, 0.11008, -0.00728632, 0.372253, 0.122996, -0.432613)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane50" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.106742, 0.0447411, -0.0905627, -2.83435e-09, 0.131758, 0.0650931, 0.101012, 0.0472794, -0.0957004, -0.188168, -0.597856, -0.205295)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane51" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.106742, 0.086292, -0.0525077, 1.78059e-10, 0.0763924, 0.125545, 0.101012, 0.0911875, -0.0554865, -0.330202, -0.41118, -0.352124)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane52" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.106742, 0.100751, -0.00725374, 0, 0.0105533, 0.146581, 0.101012, 0.106467, -0.00766526, -0.389851, -0.144245, -0.415156)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane54" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.104922, -0.0455782, 0.0922569, -2.92091e-09, 0.131758, 0.0650931, -0.102901, -0.046473, 0.0940683, 0.190682, -0.597856, 0.199754)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane55" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.104922, -0.0879063, 0.0534899, 8.72258e-09, 0.0763924, 0.125545, -0.102901, -0.0896323, 0.0545402, 0.335315, -0.41118, 0.344024)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane56" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.104922, -0.102636, 0.00738944, 1.7104e-11, 0.0105533, 0.146581, -0.102901, -0.104651, 0.00753453, 0.396079, -0.144245, 0.405981)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane57" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.106742, 0.00057473, 0.10101, -2.33035e-11, -0.146958, 0.000836165, 0.101012, 0.000607336, 0.10674, 0.0036115, 0.647106, -0.00263572)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane58" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.106742, -0.0442252, 0.0908158, 1.78059e-10, -0.132126, -0.0643424, 0.101012, -0.0467341, 0.0959679, 0.191477, 0.581416, 0.195887)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane59" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.106742, -0.0859919, 0.0529978, 1.78059e-10, -0.0771055, -0.125108, 0.101012, -0.0908703, 0.0560044, 0.330981, 0.395896, 0.346569)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane60" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.106742, -0.100708, 0.00782687, -7.03287e-10, -0.0113872, -0.146518, 0.101012, -0.106421, 0.0082709, 0.391672, 0.129463, 0.410703)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane61" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.108529, 0.00057473, -0.0990882, 1.49288e-05, -0.146958, -0.000836032, -0.0990899, 0.000607335, -0.108527, -0.0082968, 0.647056, -0.00342262)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane62" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.108529, 0.0444044, -0.0885836, 1.49315e-05, -0.131386, -0.0658416, -0.0990899, 0.0486144, -0.0970315, -0.192067, 0.578256, -0.204708)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane63" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.108529, 0.0849476, -0.0510168, 1.49291e-05, -0.075677, -0.125977, -0.0990899, 0.0930278, -0.0558954, -0.327412, 0.390416, -0.3563)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane64" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.108529, 0.0988737, -0.00654237, 1.49288e-05, -0.00971929, -0.146638, -0.0990899, 0.10829, -0.00718765, -0.38488, 0.122996, -0.419283)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane66" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0685311, 0.0575822, -0.116555, 3.3572e-09, 0.131758, 0.0650931, 0.130003, 0.0303545, -0.061442, -0.243021, -0.597856, -0.133603)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane67" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0685311, 0.111059, -0.0675778, 3.18844e-09, 0.0763924, 0.125545, 0.130003, 0.0585446, -0.0356237, -0.42477, -0.41118, -0.226876)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane68" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0685312, 0.129667, -0.00933562, -3.76298e-10, 0.0105533, 0.146581, 0.130003, 0.0683542, -0.00492128, -0.501537, -0.144245, -0.267345)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane70" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0661992, -0.058115, 0.117633, 2.06007e-10, 0.131758, 0.0650931, -0.131206, -0.0293216, 0.0593513, 0.246077, -0.597856, 0.127883)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane71" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0661992, -0.112086, 0.068203, 5.65588e-09, 0.0763924, 0.125545, -0.131206, -0.0565525, 0.0344115, 0.429462, -0.41118, 0.217897)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane72" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0661992, -0.130867, 0.009422, 1.7104e-11, 0.0105533, 0.146581, -0.131206, -0.0660283, 0.00475382, 0.50694, -0.144245, 0.256988)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane73" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0685311, 0.000739683, 0.130001, 2.64022e-11, -0.146958, 0.000836165, 0.130003, 0.000389925, 0.06853, 0.00380075, 0.647106, -0.00349074)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane74" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0685311, -0.0569181, 0.116881, 3.35922e-09, -0.132126, -0.0643424, 0.130003, -0.0300045, 0.0616138, 0.245585, 0.581416, 0.123966)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane75" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0685311, -0.110672, 0.0682085, -2.83232e-09, -0.0771055, -0.125108, 0.130003, -0.058341, 0.0359562, 0.426178, 0.395896, 0.221702)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane76" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0685311, -0.129612, 0.0100732, -3.26989e-10, -0.0113872, -0.146518, 0.130003, -0.0683251, 0.00531012, 0.504288, 0.129463, 0.262877)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane77" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0708412, 0.000739682, -0.128756, 1.49287e-05, -0.146958, -0.000836032, -0.128759, 0.000389924, -0.0708402, -0.00772669, 0.647056, -0.000401231)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane78" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0708412, 0.0576933, -0.11511, 1.49347e-05, -0.131386, -0.0658416, -0.128759, 0.0317269, -0.0633395, -0.246523, 0.578256, -0.131792)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane79" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0708412, 0.110378, -0.066298, 1.49232e-05, -0.075677, -0.125977, -0.128759, 0.0607198, -0.0364909, -0.423472, 0.390416, -0.231729)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane80" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0708412, 0.128477, -0.00850835, 1.49287e-05, -0.00971929, -0.146638, -0.128759, 0.0706853, -0.00469818, -0.498161, 0.122996, -0.272852)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane82" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0586261, 0.0596893, -0.12082, 1.31481e-09, 0.131758, 0.0650931, 0.13476, -0.0259673, 0.0525616, -0.252944, -0.597856, 0.105671)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane83" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0586261, 0.115122, -0.0700506, -7.9114e-10, 0.0763924, 0.125545, 0.13476, -0.0500829, 0.0304749, -0.439364, -0.41118, 0.189217)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane84" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.058626, 0.134412, -0.00967723, -4.02596e-10, 0.0105533, 0.146581, 0.13476, -0.0584748, 0.00420999, -0.518941, -0.144245, 0.223836)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane86" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0610227, -0.0592161, 0.119862, 2.1789e-09, 0.131758, 0.0650931, -0.133692, 0.0270288, -0.0547103, 0.256906, -0.597856, -0.112607)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane87" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0610227, -0.11421, 0.0694954, 7.611e-09, 0.0763924, 0.125545, -0.133692, 0.0521303, -0.0317207, 0.441805, -0.41118, -0.199468)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane88" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0610227, -0.133347, 0.00960053, 1.7104e-11, 0.0105533, 0.146581, -0.133692, 0.0608652, -0.0043821, 0.520751, -0.144245, -0.235503)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane89" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0586261, 0.000766749, 0.134758, 2.64022e-11, -0.146958, 0.000836165, 0.13476, -0.000333567, -0.0586251, 0.00290926, 0.647106, -0.00563608)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane90" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0586261, -0.0590009, 0.121158, 1.42203e-09, -0.132126, -0.0643424, 0.13476, 0.0256678, -0.0527085, 0.253541, 0.581416, -0.114671)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane91" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0586261, -0.114722, 0.0707044, -2.83232e-09, -0.0771055, -0.125108, 0.13476, 0.0499087, -0.0307593, 0.442722, 0.395896, -0.194526)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane92" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.0586261, -0.134355, 0.0104418, -3.26989e-10, -0.0113872, -0.146518, 0.13476, 0.0584498, -0.00454263, 0.52369, 0.129463, -0.229751)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane93" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0562108, 0.000766749, -0.135783, 1.49288e-05, -0.146958, -0.000836032, -0.135785, -0.000333567, 0.0562098, -0.00188571, 0.647056, 0.00529256)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane94" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0562108, 0.0608299, -0.121397, 1.49307e-05, -0.131386, -0.0658416, -0.135785, -0.0251961, 0.0502475, -0.25372, 0.578256, 0.109536)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane95" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0562108, 0.116395, -0.0699274, 1.4927e-05, -0.075677, -0.125977, -0.135785, -0.0481921, 0.0289339, -0.442341, 0.390416, 0.185171)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane96" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.0562108, 0.135488, -0.00898593, 1.49285e-05, -0.00971929, -0.146638, -0.135785, -0.0560886, 0.00370377, -0.521129, 0.122996, 0.217758)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane98" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.13338, 0.0273292, -0.0553183, 3.32289e-09, 0.131758, 0.0650931, 0.0617009, -0.0590781, 0.119583, -0.116017, -0.597856, 0.246915)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane99" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.13338, 0.0527097, -0.0320732, 2.96413e-09, 0.0763924, 0.125545, 0.0617009, -0.113944, 0.0693333, -0.199745, -0.41118, 0.433254)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane100" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.13338, 0.0615416, -0.0044308, 3.42016e-11, 0.0105533, 0.146581, 0.0617009, -0.133036, 0.00957815, -0.23618, -0.144245, 0.512016)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane102" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.13446, -0.0262701, 0.0531745, 3.99751e-09, 0.131758, 0.0650931, -0.0593097, 0.0595566, -0.120551, 0.119767, -0.597856, -0.255078)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane103" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.13446, -0.0506669, 0.0308303, 9.42962e-09, 0.0763924, 0.125545, -0.0593097, 0.114867, -0.0698949, 0.200155, -0.41118, -0.442883)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane104" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.134461, -0.0591566, 0.00425909, 4.71759e-10, 0.0105533, 0.146581, -0.0593097, 0.134113, -0.00965573, 0.235178, -0.144245, -0.522283)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane105" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.13338, 0.000351062, 0.0616999, 2.64022e-11, -0.146958, 0.000836165, 0.0617009, -0.000758898, -0.133378, 0.00112701, 0.647106, -0.0063184)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane106" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.13338, -0.027014, 0.055473, 3.43011e-09, -0.132126, -0.0643424, 0.0617009, 0.0583968, -0.119917, 0.115881, 0.581416, -0.254384)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane107" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.13338, -0.0525263, 0.0323726, -1.08513e-09, -0.0771055, -0.125108, 0.0617009, 0.113547, -0.0699805, 0.204125, 0.395896, -0.4398)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane108" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.13338, -0.0615154, 0.00478088, 1.09809e-10, -0.0113872, -0.146518, 0.0617009, 0.132979, -0.0103349, 0.241197, 0.129463, -0.519939)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane109" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.132257, 0.000351062, -0.0640714, 1.49288e-05, -0.146958, -0.000836032, -0.0640724, -0.000758898, 0.132255, 0.00480984, 0.647056, 0.00503341)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane110" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.132257, 0.0286939, -0.0572881, 1.49307e-05, -0.131386, -0.0658416, -0.0640724, -0.0592602, 0.118238, -0.114027, 0.578256, 0.250319)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane111" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.132257, 0.0549172, -0.0330055, 1.49287e-05, -0.075677, -0.125977, -0.0640724, -0.113377, 0.0681002, -0.204658, 0.390416, 0.43221)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane112" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.132257, 0.0639312, -0.00425087, 1.49283e-05, -0.00971929, -0.146638, -0.0640724, -0.131968, 0.00874042, -0.241855, 0.122996, 0.508929)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane114" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.1386, -0.0216417, 0.0438061, 3.47158e-09, 0.131758, 0.0650931, -0.0488604, -0.0613901, 0.124263, 0.092019, -0.597856, 0.257582)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane115" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.1386, -0.0417403, 0.0253985, 2.96413e-09, 0.0763924, 0.125545, -0.0488604, -0.118403, 0.0720467, 0.16205, -0.41118, 0.449489)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane116" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.1386, -0.0487343, 0.00350871, -1.77066e-10, 0.0105533, 0.146581, -0.0488604, -0.138242, 0.00995298, 0.190902, -0.144245, 0.531334)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane118" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.137705, 0.0227344, -0.0460177, 4.23356e-09, 0.131758, 0.0650931, 0.0513271, 0.0609939, -0.123461, -0.0893197, -0.597856, -0.266544)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane119" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.137705, 0.0438476, -0.0266807, 9.66567e-09, 0.0763924, 0.125545, 0.0513271, 0.117639, -0.0715817, -0.162766, -0.41118, -0.45717)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane120" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.137705, 0.0511946, -0.00368585, 7.22211e-10, 0.0105533, 0.146581, 0.0513272, 0.13735, -0.00988875, -0.193075, -0.144245, -0.538486)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane121" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.1386, -0.000278003, -0.0488596, 2.64022e-11, -0.146958, 0.000836165, -0.0488604, -0.000788597, -0.138598, -0.000746597, 0.647106, -0.00556124)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane122" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.1386, 0.0213922, -0.0439285, -3.96238e-10, -0.132126, -0.0643424, -0.0488604, 0.0606821, -0.12461, -0.0916189, 0.581416, -0.263334)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane123" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.1386, 0.0415951, -0.0256355, -9.36444e-10, -0.0771055, -0.125108, -0.0488604, 0.117991, -0.0727191, -0.157771, 0.395896, -0.457731)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane124" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(0.1386, 0.0487135, -0.00378594, 6.06688e-10, -0.0113872, -0.146518, -0.0488604, 0.138183, -0.0107394, -0.187128, 0.129463, -0.541007)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane125" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.13945, -0.000278003, 0.0463772, 1.49288e-05, -0.146958, -0.000836032, 0.0463781, -0.000788597, 0.139448, 0.00981203, 0.647056, 1.35414e-06)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane126" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.13945, -0.0207911, 0.0414567, 1.49345e-05, -0.131386, -0.0658416, 0.0463781, -0.0624727, 0.124674, 0.0958196, 0.578256, 0.258632)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane127" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.13945, -0.0397635, 0.0238702, 1.49286e-05, -0.0756769, -0.125977, 0.0463781, -0.119537, 0.0718138, 0.157802, 0.390416, 0.452169)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="sphere_plane128" type="CSGMesh3D" parent="lotto_machine_sphere_parent"]
+transform = Transform3D(-0.13945, -0.0462775, 0.00305311, 1.49283e-05, -0.00971929, -0.146638, 0.0463781, -0.139145, 0.00922732, 0.184311, 0.122996, 0.522022)
+visible = false
+use_collision = true
+mesh = SubResource("PlaneMesh_s8853")
+material = SubResource("StandardMaterial3D_6en55")
+
+[node name="lotto_machine_glass" type="CSGSphere3D" parent="."]
+transform = Transform3D(1.85375, 0, 0, 0, 1.85375, 0, 0, 0, 1.85375, 0.0402069, 0.0193931, 0.013031)
+material = SubResource("StandardMaterial3D_ul8uh")
