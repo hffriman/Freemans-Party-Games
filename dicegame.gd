@@ -10,6 +10,8 @@ var final_score
 var score_board1; var score_board2 
 var final_phase_layer
 
+var menu_layer
+
 var guess_number
 var final_operator; 
 var operators; var operator_cards
@@ -39,6 +41,7 @@ func _ready():
 	score_board1 = get_node("ScoreLayer/ScoreBoard1")
 	score_board2 = get_node("ScoreLayer/ScoreBoard2")
 	final_phase_layer = get_node("FinalPhaseLayer")
+	menu_layer = get_node("MenuLayer")
 	
 	operators = ['+', '-', '*', '/', '^']
 	
@@ -70,7 +73,7 @@ func _physics_process(_delta):
 				if int(final_score) <= 0 or int(final_score) >= 0:
 					await get_tree().create_timer(2).timeout
 					final_phase_layer._give_final_rating(guess_number, score1, final_operator, score2, final_score)
-				
+					menu_layer.visible = false
 func _on_dice_button_1_pressed():
 	dice1_ready = true
 
@@ -86,4 +89,8 @@ func _on_retry_pressed():
 	get_tree().change_scene_to_file("res://dicegame.tscn")
 
 func _on_back_to_menu_pressed():
+	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+func _on_exit_to_menu_pressed():
 	get_tree().change_scene_to_file("res://main_menu.tscn")

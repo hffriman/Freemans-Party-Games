@@ -7,7 +7,7 @@ var ball_number = 0
 func _ready():
 	selected = false
 
-func _process(delta):
+func _process(_delta):
 	if selected == true:
 		self.freeze = false
 

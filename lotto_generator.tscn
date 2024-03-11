@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://caopj3vi3udov"]
+[gd_scene load_steps=13 format=3 uid="uid://caopj3vi3udov"]
 
 [ext_resource type="PackedScene" uid="uid://cjsl4muxk01cc" path="res://lotto_machine.tscn" id="1_ejof4"]
 [ext_resource type="Script" path="res://lotto_generator.gd" id="1_u26h6"]
@@ -23,6 +23,12 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp2b1"]
 albedo_color = Color(0, 0, 0, 1)
 metallic_specular = 0.0
+
+[sub_resource type="FontVariation" id="FontVariation_ww3mj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iesqf"]
+font = SubResource("FontVariation_ww3mj")
+font_size = 20
 
 [node name="LottoGenerator" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.35075, 165, 0)
@@ -57,3 +63,55 @@ transform = Transform3D(-4.37114e-08, 0.350207, 0.936672, 0, 0.936672, -0.350207
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(2.22603, 0, 7.27596e-12, 0, 357.641, 0, 1.42109e-14, 0, -1574.08, -35.2851, 34.9339, 1.43051e-06)
 material = SubResource("StandardMaterial3D_fp2b1")
+
+[node name="PressToPick" type="Button" parent="."]
+offset_left = 774.0
+offset_top = 246.0
+offset_right = 1002.0
+offset_bottom = 277.0
+text = "PRESS HERE TO PICK A BALL"
+
+[node name="ExitToMenu" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.889
+anchor_top = 0.855
+anchor_right = 0.979
+anchor_bottom = 0.894
+offset_left = -0.33606
+offset_right = -0.496033
+offset_bottom = 7.59998
+text = "EXIT
+"
+
+[node name="Balls left" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.771
+anchor_top = 0.322
+anchor_right = 0.913
+anchor_bottom = 0.365
+offset_left = 13.496
+offset_top = 11.8
+offset_right = 39.088
+offset_bottom = 14.0
+text = "LOTTO BALLS: 7/7"
+label_settings = SubResource("LabelSettings_iesqf")
+horizontal_alignment = 1
+
+[node name="Picking a Ball" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.771
+anchor_top = 0.322
+anchor_right = 0.913
+anchor_bottom = 0.365
+offset_left = 13.496
+offset_top = 106.8
+offset_right = 39.088
+offset_bottom = 109.0
+label_settings = SubResource("LabelSettings_iesqf")
+horizontal_alignment = 1
+
+[connection signal="button_down" from="PressToPick" to="." method="_on_press_to_pick_button_down"]
+[connection signal="button_up" from="PressToPick" to="." method="_on_press_to_pick_button_up"]
+[connection signal="button_down" from="ExitToMenu" to="." method="_on_press_to_pick_button_down"]
+[connection signal="button_up" from="ExitToMenu" to="." method="_on_press_to_pick_button_up"]
+[connection signal="pressed" from="ExitToMenu" to="." method="_on_exit_to_menu_pressed"]

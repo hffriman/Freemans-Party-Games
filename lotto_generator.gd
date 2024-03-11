@@ -14,6 +14,12 @@ var lotto_turns = 7
 
 var lotto_points_icons
 
+var pick_button_is_pressed = false
+
+var balls_left_label
+var picking_a_ball_label
+var balls_picked = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lotto_ball_rows = get_node("lotto_balls").get_children()
@@ -28,9 +34,15 @@ func _ready():
 	for lb in lotto_balls:
 		lb.show_ball_number(numbers[index])
 		index = index + 1
-		
+	
+	balls_left_label = get_node("Balls left")
+	picking_a_ball_label = get_node("Picking a Ball")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
+	
+	balls_left_label.text = "Balls Picked: " + str(balls_picked) + "/7"
+	
 	for lbr in lotto_ball_rows:	
 		for lb in lbr.get_children():
 			if lb.selected == true:
@@ -43,8 +55,8 @@ func _process(delta):
 		else:
 			lbr.rotate(Vector3(0, 1.0, 0), 0.3)
 	
-func _input(event):
-	if event.is_action_pressed("Jump") && lotto_turns > 0:
+func _input(_event):
+	if pick_button_is_pressed && lotto_turns > 0:
 		press_count = press_count + 1
 		if (lotto_ball_rows.size() > 0):
 			var random_number_1 = randi() % lotto_ball_rows.size()
@@ -52,9 +64,21 @@ func _input(event):
 				var random_number_2 = randi() % lotto_ball_rows[random_number_1].get_children().size()
 				var selected_ball = lotto_ball_rows[random_number_1].get_child(random_number_2)
 				selected_ball.selected = true
+				picking_a_ball_label.text = "Picking a Ball..." 
 				var score_icon_index = (7 - (lotto_turns))
+				balls_picked = balls_picked + 1
 				lotto_points_icons[score_icon_index].get_child(1).text = str(selected_ball.ball_number)
 				lotto_turns = lotto_turns - 1
 				await get_tree().create_timer(4).timeout
 				lotto_points_icons[score_icon_index].is_selected = true					
 				press_count = 0
+				picking_a_ball_label.text = ""
+				
+func _on_press_to_pick_button_down():
+	pick_button_is_pressed = true
+	
+func _on_press_to_pick_button_up():
+	pick_button_is_pressed = false
+
+func _on_exit_to_menu_pressed():
+	get_tree().change_scene_to_file("res://main_menu.tscn")

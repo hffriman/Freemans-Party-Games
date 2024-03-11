@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_selected and not has_moved:
 		animation.play("lotto_ball_move")
 		await get_tree().create_timer(1).timeout

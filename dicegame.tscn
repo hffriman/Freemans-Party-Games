@@ -376,6 +376,21 @@ offset_right = 477.009
 offset_bottom = 5.7706
 text = "Main Menu"
 
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+
+[node name="ExitToMenu" type="Button" parent="MenuLayer"]
+anchors_preset = -1
+anchor_left = 0.904
+anchor_top = 0.008
+anchor_right = 0.992
+anchor_bottom = 0.094
+offset_left = 0.303955
+offset_top = 0.2
+offset_right = -35.8079
+offset_bottom = -20.4
+scale = Vector2(1.6573, 1.6573)
+text = "Exit"
+
 [node name="housewalls" type="Node3D" parent="."]
 
 [node name="wall" type="CSGBox3D" parent="housewalls"]
@@ -414,3 +429,4 @@ material = SubResource("StandardMaterial3D_amy7m")
 [connection signal="pressed" from="FinalPhaseLayer/GuessNumberLayer/EnterNumberButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="FinalPhaseLayer/GameOverLayer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="FinalPhaseLayer/GameOverLayer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="MenuLayer/ExitToMenu" to="." method="_on_exit_to_menu_pressed"]
