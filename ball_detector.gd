@@ -1,12 +1,10 @@
 extends Area3D
 
-var is_activated
+var ball_roll_sound_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	is_activated = false
-	pass # Replace with function body.
-
+	ball_roll_sound_player = get_node("BallRollSound")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -14,4 +12,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("lotto_ball"):
-		is_activated = true
+		ball_roll_sound_player.playing = true

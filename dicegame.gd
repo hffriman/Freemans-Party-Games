@@ -91,6 +91,5 @@ func _on_retry_pressed():
 func _on_back_to_menu_pressed():
 	get_tree().change_scene_to_file("res://main_menu.tscn")
 
-
 func _on_exit_to_menu_pressed():
 	get_tree().change_scene_to_file("res://main_menu.tscn")

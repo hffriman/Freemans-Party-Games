@@ -20,6 +20,10 @@ var balls_left_label
 var picking_a_ball_label
 var balls_picked = 0
 
+var restart_button
+
+var ball_select_sound_player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lotto_ball_rows = get_node("lotto_balls").get_children()
@@ -38,6 +42,9 @@ func _ready():
 	balls_left_label = get_node("Balls left")
 	picking_a_ball_label = get_node("Picking a Ball")
 	
+	restart_button = get_node("Restart")
+	ball_select_sound_player = get_node("BallSelectSound")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
@@ -55,6 +62,11 @@ func _process(_delta):
 		else:
 			lbr.rotate(Vector3(0, 1.0, 0), 0.3)
 	
+	if balls_picked >= 7:
+		restart_button.visible = true
+	else:
+		restart_button.visible = false
+	
 func _input(_event):
 	if pick_button_is_pressed && lotto_turns > 0:
 		press_count = press_count + 1
@@ -64,7 +76,8 @@ func _input(_event):
 				var random_number_2 = randi() % lotto_ball_rows[random_number_1].get_children().size()
 				var selected_ball = lotto_ball_rows[random_number_1].get_child(random_number_2)
 				selected_ball.selected = true
-				picking_a_ball_label.text = "Picking a Ball..." 
+				picking_a_ball_label.text = "Picking a Ball..."
+				ball_select_sound_player.playing = true 
 				var score_icon_index = (7 - (lotto_turns))
 				balls_picked = balls_picked + 1
 				lotto_points_icons[score_icon_index].get_child(1).text = str(selected_ball.ball_number)
@@ -82,3 +95,6 @@ func _on_press_to_pick_button_up():
 
 func _on_exit_to_menu_pressed():
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+func _on_restart_pressed():
+	get_tree().change_scene_to_file("res://lotto_generator.tscn")

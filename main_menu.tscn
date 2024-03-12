@@ -28,9 +28,9 @@ script = ExtResource("1_jb4eo")
 [node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(516, 348)
+position = Vector2(512, 296)
 rotation = 1.57079
-scale = Vector2(2.71493, -1110.07)
+scale = Vector2(2.41253, -1045.34)
 texture = SubResource("GradientTexture1D_vy0t7")
 
 [node name="LottoGenerator" type="Button" parent="."]

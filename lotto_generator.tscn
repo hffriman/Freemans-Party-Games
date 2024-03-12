@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://caopj3vi3udov"]
+[gd_scene load_steps=18 format=3 uid="uid://caopj3vi3udov"]
 
 [ext_resource type="PackedScene" uid="uid://cjsl4muxk01cc" path="res://lotto_machine.tscn" id="1_ejof4"]
 [ext_resource type="Script" path="res://lotto_generator.gd" id="1_u26h6"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dln2f077p82t2" path="res://lotto_machine_bridge.tscn" id="4_2trbg"]
 [ext_resource type="PackedScene" uid="uid://ch2u4au7yoj0m" path="res://tube.tscn" id="4_k3han"]
 [ext_resource type="PackedScene" uid="uid://c7bxhixmx88w0" path="res://lotto_points_layer.tscn" id="7_g5v55"]
+[ext_resource type="AudioStream" uid="uid://ddnqiqnwfrjiu" path="res://slot-machine-payout-81725.mp3" id="7_mgnn5"]
+[ext_resource type="AudioStream" uid="uid://cs3324ml6rqhr" path="res://lottery_machine_sounds.wav" id="7_vhx7r"]
+[ext_resource type="AudioStream" uid="uid://x6xovrdmacpo" path="res://lotto-ball-105088.mp3" id="7_vvnk8"]
+[ext_resource type="Script" path="res://ball_detector.gd" id="9_ew268"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_plqt5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,8 +24,8 @@ sky = SubResource("Sky_cwudk")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp2b1"]
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1p81"]
+albedo_color = Color(0.839216, 0.913725, 1, 1)
 metallic_specular = 0.0
 
 [sub_resource type="FontVariation" id="FontVariation_ww3mj"]
@@ -29,6 +33,9 @@ metallic_specular = 0.0
 [sub_resource type="LabelSettings" id="LabelSettings_iesqf"]
 font = SubResource("FontVariation_ww3mj")
 font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_exj82"]
 
 [node name="LottoGenerator" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.35075, 165, 0)
@@ -60,9 +67,9 @@ transform = Transform3D(-4.37114e-08, 0.350207, 0.936672, 0, 0.936672, -0.350207
 
 [node name="lotto_points_layer" parent="." instance=ExtResource("7_g5v55")]
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(2.22603, 0, 7.27596e-12, 0, 357.641, 0, 1.42109e-14, 0, -1574.08, -35.2851, 34.9339, 1.43051e-06)
-material = SubResource("StandardMaterial3D_fp2b1")
+[node name="background1" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.22603, 0, 7.27596e-12, 0, 357.641, 0, 1.42109e-14, 0, -1574.08, -35.4379, 34.9339, 1.43051e-06)
+material = SubResource("StandardMaterial3D_i1p81")
 
 [node name="PressToPick" type="Button" parent="."]
 offset_left = 774.0
@@ -77,11 +84,24 @@ anchor_left = 0.889
 anchor_top = 0.855
 anchor_right = 0.979
 anchor_bottom = 0.894
-offset_left = -0.33606
-offset_right = -0.496033
-offset_bottom = 7.59998
+offset_left = -61.336
+offset_top = 12.0
+offset_right = -61.496
+offset_bottom = 19.6
 text = "EXIT
 "
+
+[node name="Restart" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.889
+anchor_top = 0.855
+anchor_right = 0.979
+anchor_bottom = 0.894
+offset_left = -61.336
+offset_top = -36.0
+offset_right = -61.496
+offset_bottom = -28.4
+text = "RESTART"
 
 [node name="Balls left" type="Label" parent="."]
 anchors_preset = -1
@@ -110,8 +130,34 @@ offset_bottom = 109.0
 label_settings = SubResource("LabelSettings_iesqf")
 horizontal_alignment = 1
 
+[node name="BallSelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mgnn5")
+volume_db = -5.0
+
+[node name="MachineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vhx7r")
+volume_db = -20.0
+autoplay = true
+
+[node name="BallDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53397, -6.27264, 3.19025)
+script = ExtResource("9_ew268")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallDetector"]
+transform = Transform3D(7, 0, -2.84217e-14, 0, 7, 0, 2.84217e-14, 0, 7, 0, -0.267487, 0.307858)
+shape = SubResource("BoxShape3D_exj82")
+
+[node name="BallRollSound" type="AudioStreamPlayer" parent="BallDetector"]
+stream = ExtResource("7_vvnk8")
+volume_db = -2.0
+
 [connection signal="button_down" from="PressToPick" to="." method="_on_press_to_pick_button_down"]
 [connection signal="button_up" from="PressToPick" to="." method="_on_press_to_pick_button_up"]
 [connection signal="button_down" from="ExitToMenu" to="." method="_on_press_to_pick_button_down"]
 [connection signal="button_up" from="ExitToMenu" to="." method="_on_press_to_pick_button_up"]
 [connection signal="pressed" from="ExitToMenu" to="." method="_on_exit_to_menu_pressed"]
+[connection signal="button_down" from="Restart" to="." method="_on_press_to_pick_button_down"]
+[connection signal="button_up" from="Restart" to="." method="_on_press_to_pick_button_up"]
+[connection signal="pressed" from="Restart" to="." method="_on_exit_to_menu_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
