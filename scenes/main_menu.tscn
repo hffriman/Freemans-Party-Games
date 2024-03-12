@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://4aaql8kdi01a"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jb4eo"]
+
+[sub_resource type="Gradient" id="Gradient_27pux"]
+offsets = PackedFloat32Array(0, 0.0438596, 0.587719, 0.596491, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0896173, 0.0181642, 0.0878933, 1, 0.923747, 0.187231, 0.905978, 1, 0.931048, 0.265049, 0.91498, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vy0t7"]
+gradient = SubResource("Gradient_27pux")
+
+[sub_resource type="FontVariation" id="FontVariation_fg0qd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o5gp"]
+font = SubResource("FontVariation_fg0qd")
+font_size = 40
+
+[sub_resource type="FontVariation" id="FontVariation_k4t3r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_43p0x"]
+font = SubResource("FontVariation_k4t3r")
+font_size = 33
+font_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_jb4eo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 296)
+rotation = 1.57079
+scale = Vector2(2.41253, -1045.34)
+texture = SubResource("GradientTexture1D_vy0t7")
+
+[node name="LottoGenerator" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.582
+anchor_right = 0.438
+anchor_bottom = 0.709
+offset_left = -0.319942
+offset_top = -0.199982
+offset_right = -233.512
+offset_bottom = -45.4
+scale = Vector2(2.46606, 2.46606)
+text = "LOTTO GENERATOR"
+
+[node name="DiceGame" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.564
+anchor_top = 0.582
+anchor_right = 0.947
+anchor_bottom = 0.709
+offset_left = 0.463928
+offset_top = -0.199982
+offset_right = -232.728
+offset_bottom = -45.4
+scale = Vector2(2.46606, 2.46606)
+text = "DICE GAME"
+
+[node name="Freeman\'s Game Collection" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.273
+anchor_top = 0.248
+anchor_right = 0.759
+anchor_bottom = 0.34
+offset_left = -2.552
+offset_top = 0.199997
+offset_right = -3.21606
+text = "FREEMAN'S PARTY GAMES
+"
+label_settings = SubResource("LabelSettings_0o5gp")
+
+[node name="Version" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.402
+anchor_top = 0.88
+anchor_right = 0.602
+anchor_bottom = 0.957
+offset_left = 0.35199
+offset_top = -6.10352e-05
+offset_right = -0.448059
+offset_bottom = -0.200012
+text = "Version 0.0.1"
+label_settings = SubResource("LabelSettings_43p0x")
+
+[connection signal="pressed" from="LottoGenerator" to="." method="_on_lotto_generator_pressed"]
+[connection signal="pressed" from="DiceGame" to="." method="_on_dice_game_pressed"]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://crh1xx1v0fqt3"]
+
+[ext_resource type="Script" path="res://scripts/operator_card.gd" id="1_ret8w"]
+[ext_resource type="Texture2D" uid="uid://b0mlnfa8xgxv7" path="res://textures/card_hf.png" id="2_ftuay"]
+[ext_resource type="Texture2D" uid="uid://cf3u5wquis32i" path="res://textures/card_hf-2.png" id="3_g1rpd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_735cn"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_7e5wp"]
+
+[sub_resource type="Animation" id="Animation_lfhqh"]
+resource_name = "flip_1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.391306, 0.28626), Vector2(0.391306, 0.00625971)]
+}
+
+[sub_resource type="Animation" id="Animation_bq4pp"]
+resource_name = "flip_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.391306, 0.00625971), Vector2(0.391306, 0.28626)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vga6h"]
+_data = {
+"flip_1": SubResource("Animation_lfhqh"),
+"flip_2": SubResource("Animation_bq4pp")
+}
+
+[node name="OperatorCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.391306, 0.28626)
+script = ExtResource("1_ret8w")
+
+[node name="CardHf" type="Sprite2D" parent="."]
+position = Vector2(72, 54)
+rotation = 1.5708
+scale = Vector2(0.121609, 0.121609)
+texture = ExtResource("2_ftuay")
+
+[node name="CardHf2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(72, 54)
+rotation = 1.5708
+scale = Vector2(0.121609, 0.121609)
+texture = ExtResource("3_g1rpd")
+
+[node name="CardValue" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 19.0
+offset_right = 116.0
+offset_bottom = 122.0
+label_settings = SubResource("LabelSettings_735cn")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = 10.0
+scale = Vector2(19.1023, 13.2325)
+icon = SubResource("ImageTexture_7e5wp")
+flat = true
+icon_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vga6h")
+}
+speed_scale = 0.2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
