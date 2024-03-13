@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b23wlc38ij0fk"]
+[gd_scene load_steps=33 format=3 uid="uid://b23wlc38ij0fk"]
 
 [ext_resource type="Script" path="res://scripts/dicegame.gd" id="1_rvvc2"]
 [ext_resource type="PackedScene" uid="uid://duphwy5wms0n7" path="res://objects/dice.tscn" id="2_niwhf"]
@@ -7,8 +7,14 @@
 [ext_resource type="Script" path="res://scripts/score_board.gd" id="4_i5627"]
 [ext_resource type="Texture2D" uid="uid://cwihc4dgalqib" path="res://textures/dice_board_hf.png" id="5_hjavp"]
 [ext_resource type="Script" path="res://scripts/final_phase_layer.gd" id="5_y0l16"]
+[ext_resource type="Script" path="res://scenes/DiceDetector.gd" id="6_xwjd1"]
 [ext_resource type="PackedScene" uid="uid://dykjkek2e2j3" path="res://objects/table.dae" id="8_q0fd1"]
 [ext_resource type="Texture2D" uid="uid://bhyflkpl4efon" path="res://textures/table_pexels-pixabay-301717.jpg" id="9_4tjfd"]
+[ext_resource type="AudioStream" uid="uid://b7exwc5ng7mg0" path="res://sounds/WoodKnock.wav" id="9_fwyl4"]
+[ext_resource type="AudioStream" uid="uid://cfpmax7deay07" path="res://sounds/BoardMove.wav" id="9_v61j6"]
+[ext_resource type="AudioStream" uid="uid://cvysbovkd34s4" path="res://sounds/WinSound.wav" id="13_ry8dj"]
+[ext_resource type="AudioStream" uid="uid://cyp5x7o0b1d8d" path="res://sounds/AlmostSound.wav" id="14_3r2yv"]
+[ext_resource type="AudioStream" uid="uid://c0q73nqb5uil3" path="res://sounds/LoseSound.wav" id="15_8gaod"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ckbmy"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,7 +30,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ox4mg"]
-albedo_color = Color(0.262745, 1, 1, 1)
+albedo_color = Color(0.286275, 0.14902, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1dao2"]
 material = SubResource("ORMMaterial3D_ox4mg")
@@ -33,6 +39,12 @@ material = SubResource("ORMMaterial3D_ox4mg")
 albedo_texture = ExtResource("9_4tjfd")
 
 [sub_resource type="BoxMesh" id="BoxMesh_t8lip"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lu72u"]
+size = Vector3(20.9241, 1, 32.4739)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtnro"]
+albedo_color = Color(0.286275, 0.14902, 0, 0)
 
 [sub_resource type="FontVariation" id="FontVariation_xf6l8"]
 
@@ -92,14 +104,21 @@ material_override = SubResource("StandardMaterial3D_kbeqe")
 mesh = SubResource("BoxMesh_t8lip")
 
 [node name="table_floor" type="CSGBox3D" parent="table"]
-transform = Transform3D(20.9306, 0, 0, 0, 0.1023, 0, 0, 0, 39.1098, 0.390859, -1.09746, 0.986593)
+transform = Transform3D(20.9306, 0, 0, 0, 0.1023, 0, 0, 0, 39.1098, 0.11618, -1.09746, 0.986593)
 visible = false
 use_collision = true
-size = Vector3(1.00903, 1, 1)
-script = ExtResource("3_yowlc")
+size = Vector3(1.03528, 1, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="table/table_floor"]
 mesh = SubResource("BoxMesh_1dao2")
+
+[node name="DiceDetector" type="Area3D" parent="table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1702, 0)
+script = ExtResource("6_xwjd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="table/DiceDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.536499, 0, 1.33395)
+shape = SubResource("BoxShape3D_lu72u")
 
 [node name="Wall" type="CSGBox3D" parent="."]
 transform = Transform3D(20.6967, 0, 0, 0, 15.8536, 0, 0, 0, 0.50233, 0, 5.53204, -16.3709)
@@ -119,13 +138,11 @@ size = Vector3(2.88889, 1, 1)
 mesh = SubResource("BoxMesh_1dao2")
 
 [node name="Wall5" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.8917e-07, 0, 0.25686, 0, 13.9947, 0, -11.1909, 0, -1.12277e-08, -0.00189468, 5.53204, 1.50379)
+transform = Transform3D(-4.8917e-07, 0, 0.519904, 0, 13.9947, 0, -11.1909, 0, -2.27257e-08, -0.00189468, 0.59981, 1.50379)
 visible = false
 use_collision = true
 size = Vector3(2.88889, 1, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall5"]
-mesh = SubResource("BoxMesh_1dao2")
+material = SubResource("StandardMaterial3D_dtnro")
 
 [node name="Wall6" type="CSGBox3D" parent="."]
 transform = Transform3D(8.27868, 0, 0, 0, 13.9947, 0, 0, 0, 0.25686, -0.00189468, 5.53204, -5.15609)
@@ -209,6 +226,15 @@ label_settings = SubResource("LabelSettings_pgk1s")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="ScoreBoardMoveSound1" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard1"]
+stream = ExtResource("9_v61j6")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="ScoreBoardCloseSound1" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard1"]
+stream = ExtResource("9_fwyl4")
+bus = &"SFX"
+
 [node name="ScoreBoard2" type="Node2D" parent="ScoreLayer"]
 position = Vector2(501, -967)
 scale = Vector2(0.93, 1.519)
@@ -229,6 +255,15 @@ text = "12"
 label_settings = SubResource("LabelSettings_pgk1s")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="ScoreBoardMoveSound2" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard2"]
+stream = ExtResource("9_v61j6")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="ScoreBoardCloseSound2" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard2"]
+stream = ExtResource("9_fwyl4")
+bus = &"SFX"
 
 [node name="FinalPhaseLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_y0l16")
@@ -376,6 +411,18 @@ offset_right = 477.009
 offset_bottom = 5.7706
 text = "Main Menu"
 
+[node name="WinSound" type="AudioStreamPlayer" parent="FinalPhaseLayer/GameOverLayer"]
+stream = ExtResource("13_ry8dj")
+bus = &"SFX"
+
+[node name="AlmostSound" type="AudioStreamPlayer" parent="FinalPhaseLayer/GameOverLayer"]
+stream = ExtResource("14_3r2yv")
+bus = &"SFX"
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="FinalPhaseLayer/GameOverLayer"]
+stream = ExtResource("15_8gaod")
+bus = &"SFX"
+
 [node name="MenuLayer" type="CanvasLayer" parent="."]
 
 [node name="ExitToMenu" type="Button" parent="MenuLayer"]
@@ -389,40 +436,47 @@ offset_top = 0.2
 offset_right = -35.8079
 offset_bottom = -20.4
 scale = Vector2(1.6573, 1.6573)
-text = "Exit"
+text = "EXIT"
 
 [node name="housewalls" type="Node3D" parent="."]
 
 [node name="wall" type="CSGBox3D" parent="housewalls"]
-transform = Transform3D(119.585, 0, 0, 0, 5.3679, 0, 0, 0, 178.794, 0.510923, -35.3885, 0)
+transform = Transform3D(222.14, 0, 0, 0, 9.97136, 0, 0, 0, 332.126, 0.510923, -35.3885, 0)
 size = Vector3(1.08569, 1, 1)
 material = SubResource("StandardMaterial3D_amy7m")
 
 [node name="wall2" type="CSGBox3D" parent="housewalls"]
 transform = Transform3D(119.585, 0, 0, 0, 5.3679, 0, 0, 0, 178.794, 0.510923, 81.6286, -7.1795)
+visible = false
 size = Vector3(1.08569, 1, 0.926208)
 material = SubResource("StandardMaterial3D_amy7m")
 
 [node name="wall3" type="CSGBox3D" parent="housewalls"]
 transform = Transform3D(119.585, 0, 0, 0, -2.34638e-07, -178.794, 0, 5.3679, -7.81532e-06, 0.510923, 23.0071, -84.3325)
+visible = false
 size = Vector3(1.08569, 1, 0.70752)
 material = SubResource("StandardMaterial3D_amy7m")
 
 [node name="wall4" type="CSGBox3D" parent="housewalls"]
 transform = Transform3D(119.585, 0, 0, 0, -2.34638e-07, -178.794, 0, 5.3679, -7.81532e-06, 0.510923, 22.9744, 71.496)
+visible = false
 size = Vector3(1.08569, 1, 0.707886)
 material = SubResource("StandardMaterial3D_amy7m")
 
 [node name="wall5" type="CSGBox3D" parent="housewalls"]
 transform = Transform3D(-5.22724e-06, 5.3679, -7.81532e-06, 0, -2.34638e-07, -178.794, -119.585, -2.34638e-07, 3.41618e-13, 59.8798, 24.3712, -6.3831)
+visible = false
 size = Vector3(1.37616, 1, 0.692261)
 material = SubResource("StandardMaterial3D_amy7m")
 
 [node name="wall6" type="CSGBox3D" parent="housewalls"]
 transform = Transform3D(-5.22724e-06, 5.3679, -7.81532e-06, 0, -2.34638e-07, -178.794, -119.585, -2.34638e-07, 3.41618e-13, -62.6639, 24.3712, -5.94418)
+visible = false
 size = Vector3(1.37616, 1, 0.692261)
 material = SubResource("StandardMaterial3D_amy7m")
 
+[connection signal="body_entered" from="table/DiceDetector" to="table/DiceDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="table/DiceDetector" to="table/DiceDetector" method="_on_body_exited"]
 [connection signal="pressed" from="DiceThrowUI/DiceThrow1/DiceButton1" to="." method="_on_dice_button_1_pressed"]
 [connection signal="pressed" from="DiceThrowUI/DiceThrow2/DiceButton2" to="." method="_on_dice_button_2_pressed"]
 [connection signal="pressed" from="FinalPhaseLayer/GuessNumberLayer/EnterNumberButton" to="." method="_on_enter_number_button_pressed"]

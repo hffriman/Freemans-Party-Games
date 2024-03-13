@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://duphwy5wms0n7"]
+[gd_scene load_steps=20 format=3 uid="uid://duphwy5wms0n7"]
 
 [ext_resource type="Script" path="res://scripts/dice.gd" id="1_naeij"]
 [ext_resource type="Texture2D" uid="uid://bw104smmpyvml" path="res://textures/dice_1.png" id="2_147si"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://jl6q68cg0s00" path="res://textures/dice_4.png" id="5_i0ayg"]
 [ext_resource type="Texture2D" uid="uid://cbuawanh7dmh2" path="res://textures/dice_5.png" id="6_s61o4"]
 [ext_resource type="Texture2D" uid="uid://dfvxiobi8qmhf" path="res://textures/dice_2.png" id="7_ftj3f"]
+[ext_resource type="AudioStream" uid="uid://58cx375ofkdx" path="res://sounds/DiceShake.wav" id="9_2vfd6"]
+[ext_resource type="AudioStream" uid="uid://brk3y80g03mr1" path="res://sounds/dice-142528.mp3" id="10_nh18h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ju0xx"]
 friction = 0.5
@@ -99,3 +101,13 @@ target_position = Vector3(-10000, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_6834v")
+
+[node name="DiceRollPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_2vfd6")
+bus = &"SFX"
+
+[node name="DiceBouncePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nh18h")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

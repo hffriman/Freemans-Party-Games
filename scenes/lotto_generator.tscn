@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://caopj3vi3udov"]
+[gd_scene load_steps=20 format=3 uid="uid://caopj3vi3udov"]
 
 [ext_resource type="Script" path="res://scripts/lotto_generator.gd" id="1_y4v4f"]
 [ext_resource type="PackedScene" uid="uid://cjsl4muxk01cc" path="res://objects/lotto_machine.tscn" id="2_2fe0u"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ddnqiqnwfrjiu" path="res://sounds/slot-machine-payout-81725.mp3" id="7_cach7"]
 [ext_resource type="AudioStream" uid="uid://cs3324ml6rqhr" path="res://sounds/lottery_machine_sounds.wav" id="8_0acpr"]
 [ext_resource type="Script" path="res://scripts/ball_detector.gd" id="9_hqj5j"]
+[ext_resource type="Script" path="res://scenes/DeadZone.gd" id="9_mgmm3"]
 [ext_resource type="AudioStream" uid="uid://x6xovrdmacpo" path="res://sounds/lotto-ball-105088.mp3" id="10_o2tlx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_plqt5"]
@@ -35,7 +36,11 @@ font = SubResource("FontVariation_ww3mj")
 font_size = 20
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohlet"]
+size = Vector3(598.628, 30.6359, 294.961)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_exj82"]
+size = Vector3(0.704224, 0.0606079, 1.57166)
 
 [node name="LottoGenerator" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.35075, 165, 0)
@@ -132,24 +137,35 @@ horizontal_alignment = 1
 
 [node name="BallSelectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cach7")
-volume_db = -5.0
+volume_db = -80.0
+bus = &"SFX"
 
 [node name="MachineSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0acpr")
-volume_db = -20.0
+volume_db = -80.0
 autoplay = true
+bus = &"SFX"
+
+[node name="DeadZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53398, -51.0115, 78.4719)
+script = ExtResource("9_mgmm3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.363, 14.8179, -79.5077)
+shape = SubResource("BoxShape3D_ohlet")
 
 [node name="BallDetector" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53397, -6.27264, 3.19025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53397, -1.77893, 3.19025)
 script = ExtResource("9_hqj5j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BallDetector"]
-transform = Transform3D(7, 0, -2.84217e-14, 0, 7, 0, 2.84217e-14, 0, 7, 0, -0.267487, 0.307858)
+transform = Transform3D(6.99997, -0.0205607, -0.00401859, 0.0206008, 6.9996, 0.0717678, 0.00380757, -0.0717793, 6.99963, -1.03522, -0.723419, 0.0370789)
 shape = SubResource("BoxShape3D_exj82")
 
-[node name="BallRollSound" type="AudioStreamPlayer" parent="BallDetector"]
+[node name="BallFallSound" type="AudioStreamPlayer" parent="BallDetector"]
 stream = ExtResource("10_o2tlx")
 volume_db = -2.0
+bus = &"SFX"
 
 [connection signal="button_down" from="PressToPick" to="." method="_on_press_to_pick_button_down"]
 [connection signal="button_up" from="PressToPick" to="." method="_on_press_to_pick_button_up"]
@@ -158,6 +174,8 @@ volume_db = -2.0
 [connection signal="pressed" from="ExitToMenu" to="." method="_on_exit_to_menu_pressed"]
 [connection signal="button_down" from="Restart" to="." method="_on_press_to_pick_button_down"]
 [connection signal="button_up" from="Restart" to="." method="_on_press_to_pick_button_up"]
-[connection signal="pressed" from="Restart" to="." method="_on_exit_to_menu_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_exit_to_menu_pressed"]
+[connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
 [connection signal="body_entered" from="BallDetector" to="BallDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="BallDetector" to="BallDetector" method="_on_body_exited"]

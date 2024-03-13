@@ -1,9 +1,14 @@
 extends CanvasLayer
 
+var win_sound
+var almost_sound
+var lose_sound
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	win_sound = get_node("GameOverLayer/WinSound")
+	almost_sound = get_node("GameOverLayer/AlmostSound")
+	lose_sound = get_node("GameOverLayer/LoseSound")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -67,10 +72,13 @@ func _give_final_rating(guess_number, score1, final_operator, score2, final_scor
 				
 	if final_score == guess_number:
 		self.get_child(2).get_child(3).text = "PERFECT!!"
+		return "win"
 	elif distance <= 2 && distance >=0 && distance <= 12:
 		self.get_child(2).get_child(3).text = "SO CLOSE!!"
+		return "almost"
 	else:
-		self.get_child(2).get_child(3).text = "GOOD LUCK NEXT TIME"	
+		self.get_child(2).get_child(3).text = "GOOD LUCK NEXT TIME"
+		return "lose"
 
 func _show_score_in_the_corner(final_score):
 	await get_tree().create_timer(0.8).timeout

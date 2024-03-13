@@ -3,10 +3,12 @@ extends RigidBody3D
 var is_rotating = true
 var diceRB
 var number_detectors = []
+var dice_roll_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	diceRB = get_node(".")
+	dice_roll_player = get_node("DiceRollPlayer")
 	
 	for _i in self.get_child(1).get_children():
 		number_detectors.append(_i.get_child(0))
@@ -25,9 +27,17 @@ func _check_readiness(ready, rotating):
 	if ready && rotating:
 		self.is_rotating = false
 		self.apply_impulse(Vector3(0, 30000, -30000), Vector3(0, 0, 0))
+		return true
+		
 
 func _check_result():
 	for detector in number_detectors:
 		if detector.is_colliding():
 			if(detector.get_collider().name == "Roof"):
 				return(int(str(detector.name)))
+
+func _play_roll_sound():
+	dice_roll_player.playing = true
+	
+func _stop_roll_sound():
+	dice_roll_player.playing = false

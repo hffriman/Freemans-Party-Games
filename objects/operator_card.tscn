@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://crh1xx1v0fqt3"]
+[gd_scene load_steps=10 format=3 uid="uid://crh1xx1v0fqt3"]
 
 [ext_resource type="Script" path="res://scripts/operator_card.gd" id="1_ret8w"]
 [ext_resource type="Texture2D" uid="uid://b0mlnfa8xgxv7" path="res://textures/card_hf.png" id="2_ftuay"]
 [ext_resource type="Texture2D" uid="uid://cf3u5wquis32i" path="res://textures/card_hf-2.png" id="3_g1rpd"]
+[ext_resource type="AudioStream" uid="uid://bspckgpmj6y8w" path="res://sounds/CardTurn.wav" id="4_ygiua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_735cn"]
 font_size = 50
@@ -97,5 +98,9 @@ libraries = {
 "": SubResource("AnimationLibrary_vga6h")
 }
 speed_scale = 0.2
+
+[node name="CardSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ygiua")
+volume_db = 10.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -8,6 +8,8 @@ var score1; var score2;
 var final_score
 
 var score_board1; var score_board2 
+var score_board1_move_played; var score_board2_move_played
+var score_board1_close_played; var score_board2_close_played
 var final_phase_layer
 
 var menu_layer
@@ -18,6 +20,8 @@ var operators; var operator_cards
 
 var score_board1_is_shown; var score_board2_is_shown
 var roof
+
+var status_sound_played
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,19 +44,35 @@ func _ready():
 	
 	score_board1 = get_node("ScoreLayer/ScoreBoard1")
 	score_board2 = get_node("ScoreLayer/ScoreBoard2")
+	
+	score_board1_move_played = false
+	score_board1_move_played = false
+	score_board1_close_played = false
+	score_board2_close_played = false
+	
 	final_phase_layer = get_node("FinalPhaseLayer")
 	menu_layer = get_node("MenuLayer")
+	
+	status_sound_played = false
 	
 	operators = ['+', '-', '*', '/', '^']
 	
 	final_phase_layer._shuffle_operators(operators)
-		
+	
+	dice1._play_roll_sound()
+	dice2._play_roll_sound()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	
-	if game_ready:
-		dice1._check_readiness(dice1_ready, dice1.is_rotating)
-		dice2._check_readiness(dice2_ready, dice2.is_rotating)
+	if game_ready:	
+		dice1_ready = dice1._check_readiness(dice1_ready, dice1.is_rotating)
+		dice2_ready = dice2._check_readiness(dice2_ready, dice2.is_rotating)
+		
+		if dice1_ready:
+			dice1._stop_roll_sound()
+		elif dice2_ready:
+			dice2._stop_roll_sound()
 		
 		score1 = dice1._check_result()
 		score2 = dice2._check_result()
@@ -60,9 +80,25 @@ func _physics_process(_delta):
 		score_board1._ready_to_show_score(dice1)
 		score_board2._ready_to_show_score(dice2)
 		
+		if score_board1.ready_to_move and not score_board1_move_played:
+			score_board1.get_child(2).play()
+			score_board1_move_played = true
+		elif score_board2.ready_to_move and not score_board2_move_played:
+			score_board2.get_child(2).play()
+			score_board2_move_played = true
+		
 		score_board1_is_shown = score_board1.position.y >= -368
 		score_board2_is_shown = score_board2.position.y >= -368
 		
+		if score_board1_is_shown and not score_board1_close_played:
+			score_board1.get_child(2).stop()
+			score_board1.get_child(3).play()
+			score_board1_close_played = true
+		elif score_board2_is_shown and not score_board2_close_played:
+			score_board2.get_child(2).stop()
+			score_board2.get_child(3).play()
+			score_board2_close_played = true
+			
 		if score_board1_is_shown && score_board2_is_shown:
 			await get_tree().create_timer(0.5).timeout
 			final_phase_layer._start_number_guess(guess_number)
@@ -72,8 +108,16 @@ func _physics_process(_delta):
 				final_score = final_phase_layer._make_final_calculation(final_operator, score1, score2)
 				if int(final_score) <= 0 or int(final_score) >= 0:
 					await get_tree().create_timer(2).timeout
-					final_phase_layer._give_final_rating(guess_number, score1, final_operator, score2, final_score)
+					var status = await final_phase_layer._give_final_rating(guess_number, score1, final_operator, score2, final_score)
+					if status == "win" and not status_sound_played:
+						final_phase_layer.win_sound.play()
+					elif status == "almost" and not status_sound_played:
+						final_phase_layer.almost_sound.play()
+					elif status == "lose" and not status_sound_played:
+						final_phase_layer.lose_sound.play()
+					status_sound_played = true
 					menu_layer.visible = false
+					
 func _on_dice_button_1_pressed():
 	dice1_ready = true
 

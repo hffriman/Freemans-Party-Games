@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj1mayq55ej85"]
+[gd_scene load_steps=6 format=3 uid="uid://bj1mayq55ej85"]
 
 [ext_resource type="Script" path="res://scripts/lotto_ball.gd" id="1_o1wss"]
+[ext_resource type="AudioStream" uid="uid://dq0nhruh4pbql" path="res://sounds/ball_roll.wav" id="2_tkp1q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_srukb"]
 
@@ -54,3 +55,8 @@ font_size = 80
 transform = Transform3D(1.00001, 0, 0, 0, -4.37119e-08, -1.00001, 0, 1.00001, -4.37119e-08, 0.0192568, -0.510785, -0.0137351)
 modulate = Color(0, 0, 0, 1)
 font_size = 80
+
+[node name="BallRollPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tkp1q")
+volume_db = 5.0
+bus = &"SFX"

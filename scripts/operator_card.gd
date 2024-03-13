@@ -8,15 +8,22 @@ var clickCount = 0
 var flip1_has_played = false
 var flip2_has_played = false
 
+var card_sound_played = false
+var card_sound_player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	card_sound_player = get_node("CardSoundPlayer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if selected and !flip1_has_played:
 		self.get_child(0).visible = true
 		animation.play("flip_1")
+		if not card_sound_played:
+			card_sound_player.play()
+			card_sound_played = true
+		
 		await get_tree().create_timer(0.5).timeout
 		flip1_has_played = true
 		
