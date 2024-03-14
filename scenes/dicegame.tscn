@@ -226,11 +226,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ScoreBoardMoveSound1" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard1"]
 stream = ExtResource("9_v61j6")
-volume_db = 5.0
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="ScoreBoardCloseSound1" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard1"]
 stream = ExtResource("9_fwyl4")
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="ScoreBoard2" type="Node2D" parent="ScoreLayer"]
@@ -256,11 +257,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ScoreBoardMoveSound2" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard2"]
 stream = ExtResource("9_v61j6")
-volume_db = 5.0
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="ScoreBoardCloseSound2" type="AudioStreamPlayer" parent="ScoreLayer/ScoreBoard2"]
 stream = ExtResource("9_fwyl4")
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="FinalPhaseLayer" type="CanvasLayer" parent="."]
@@ -362,8 +364,8 @@ scale = Vector2(2.04808, 2.45745)
 
 [node name="Background" type="Sprite2D" parent="FinalPhaseLayer/GameOverLayer"]
 modulate = Color(0.490196, 0.478431, 1, 1)
-position = Vector2(253.408, -100.918)
-scale = Vector2(500.957, 245.783)
+position = Vector2(253.408, -97.2554)
+scale = Vector2(500.957, 253.108)
 texture = SubResource("CanvasTexture_3h28u")
 
 [node name="YourGuess" type="Label" parent="FinalPhaseLayer/GameOverLayer"]
@@ -411,14 +413,17 @@ text = "Main Menu"
 
 [node name="WinSound" type="AudioStreamPlayer" parent="FinalPhaseLayer/GameOverLayer"]
 stream = ExtResource("13_ry8dj")
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="AlmostSound" type="AudioStreamPlayer" parent="FinalPhaseLayer/GameOverLayer"]
 stream = ExtResource("14_3r2yv")
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="LoseSound" type="AudioStreamPlayer" parent="FinalPhaseLayer/GameOverLayer"]
 stream = ExtResource("15_8gaod")
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]

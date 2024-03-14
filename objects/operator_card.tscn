@@ -101,6 +101,7 @@ speed_scale = 0.2
 
 [node name="CardSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ygiua")
-volume_db = 10.0
+volume_db = 13.0
+bus = &"SFX"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

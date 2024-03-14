@@ -17,22 +17,22 @@ offset = Vector2(0, -2.505)
 transform = Transform2D(1, 0, 0, 1, 0, -2.505)
 
 [node name="lotto_ball_icon" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
-position = Vector2(-88, 43.5)
+position = Vector2(-88, 35.5)
 
 [node name="lotto_ball_icon2" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
-position = Vector2(-88, 120)
+position = Vector2(-88, 112)
 
 [node name="lotto_ball_icon3" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
-position = Vector2(-88, 196.005)
+position = Vector2(-88, 188.005)
 
 [node name="lotto_ball_icon4" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
-position = Vector2(-88, 273.005)
+position = Vector2(-88, 265.005)
 
 [node name="lotto_ball_icon5" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
-position = Vector2(-88, 350.51)
+position = Vector2(-88, 342.51)
 
 [node name="lotto_ball_icon6" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
-position = Vector2(-88, 427.51)
+position = Vector2(-88, 419.51)
 
 [node name="lotto_ball_icon7" parent="lotto_points_ui" instance=ExtResource("2_r31mn")]
-position = Vector2(-88, 504.505)
+position = Vector2(-88, 496.505)

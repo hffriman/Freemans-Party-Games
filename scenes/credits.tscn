@@ -126,7 +126,7 @@ offset_left = 26.0
 offset_top = 500.0
 offset_right = 517.0
 offset_bottom = 573.0
-text = "\"FUNK CASINO\" BY TOP-FLOW(PIXABAY.COM)"
+text = "\"FUNK CASINO\" BY TOP-FLOW (PIXABAY.COM)"
 label_settings = SubResource("LabelSettings_2ys4j")
 
 [node name="SOUNDEFFECTS" type="Label" parent="."]
@@ -137,12 +137,12 @@ offset_bottom = 261.0
 text = "SOUND EFFECTS"
 label_settings = SubResource("LabelSettings_i56j2")
 
-[node name="HenrySFriman6" type="Label" parent="."]
+[node name="SoundEffectList" type="Label" parent="."]
 offset_left = 428.0
 offset_top = 233.0
 offset_right = 1121.0
 offset_bottom = 724.0
-text = "\"Playful Casino Slot Machine Jackpot2\" by floraphonic
+text = "\"Playful Casino Slot Machine Jackpot 2\" by floraphonic
 \"Lottery Balls Sound Effect\" by AudioKid - Sound FX Library
 \"Lotto Ball\" by Pixabay
 \"Metal Ball Rolling Sound Effect\" by Sound King

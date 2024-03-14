@@ -20,8 +20,6 @@ var balls_left_label
 var picking_a_ball_label
 var balls_picked = 0
 
-var restart_button
-
 var ball_select_sound_player
 
 ## LOTTO BALL GENERATOR:
@@ -30,7 +28,7 @@ var ball_select_sound_player
 ## - Randomly selects a lotto ball, removes it from the group and releases
 ##   it as a single ball with physics applied
 ## - Activates the Lotto Ball Icon Layer after each selection
-## - Selects only 7 balls: after that, the Restart buttons become visible
+## - Selects only 7 balls: after that, the player must go back to main menu
 ## - Activates the lotto ball selection only when the Pick a Ball button is pressed
 
 # Called when the node enters the scene tree for the first time.
@@ -51,7 +49,6 @@ func _ready():
 	balls_left_label = get_node("Balls left")
 	picking_a_ball_label = get_node("Picking a Ball")
 	
-	restart_button = get_node("Restart")
 	ball_select_sound_player = get_node("BallSelectSound")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,11 +67,6 @@ func _process(_delta):
 			lbr.rotate(Vector3(0, -1.0, 0), 0.3)
 		else:
 			lbr.rotate(Vector3(0, 1.0, 0), 0.3)
-	
-	if balls_picked >= 7:
-		restart_button.visible = true
-	else:
-		restart_button.visible = false
 	
 func _input(_event):
 	if pick_button_is_pressed && lotto_turns > 0:
@@ -104,6 +96,3 @@ func _on_press_to_pick_button_up():
 
 func _on_exit_to_menu_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
-func _on_restart_pressed():
-	get_tree().change_scene_to_file("res://scenes/lotto_generator.tscn")
