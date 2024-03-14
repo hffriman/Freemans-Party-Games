@@ -11,8 +11,7 @@ A Collection of Small Party Games: Created by Me with Godot Engine
 <h2>Introduction</h2>
 <p>I created this game with the Godot Engine.</p>
 <p>It all started with a funny dice game idea I had created in my head. When I started bringing that idea to life, I was asked by my relatives to create a lotto number generator.</p>
-<p>That is this game ended up being a collection of both the Dice Game and the Lotto Generator.</p>
-
+<p>That is why I decided to create both the Dice Game and the Lotto Geneator -- and combine them into a single game.
 
 <h2>Game 1: Dice Game</h2>
 <ul>
