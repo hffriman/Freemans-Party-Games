@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csiu337t6b4ei"]
+
+[ext_resource type="Texture2D" uid="uid://dpn86e6hng7rs" path="res://textures/speaker_icon.png" id="1_88g73"]
+[ext_resource type="Texture2D" uid="uid://btwwymcckpk57" path="res://textures/speaker_icon_muted.png" id="2_vlxke"]
+
+[node name="SoundButton" type="TextureButton"]
+offset_left = 169.0
+offset_top = 500.0
+offset_right = 3213.0
+offset_bottom = 3397.0
+scale = Vector2(0.0309512, 0.0309512)
+toggle_mode = true
+texture_normal = ExtResource("1_88g73")
+texture_pressed = ExtResource("2_vlxke")

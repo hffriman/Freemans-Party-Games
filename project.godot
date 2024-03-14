@@ -18,6 +18,7 @@ config/icon="res://textures/icon.svg"
 [autoload]
 
 BgMusicPlayer="*res://objects/bg_music_player.tscn"
+SoundSave="*res://objects/sound_save.tscn"
 
 [display]
 

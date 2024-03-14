@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf1wbtbkkii7e"]
+
+[ext_resource type="Script" path="res://scenes/SoundSave.gd" id="1_lhnag"]
+
+[node name="SoundSave" type="Node2D"]
+script = ExtResource("1_lhnag")

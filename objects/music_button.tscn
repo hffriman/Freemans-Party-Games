@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rojxo58kmcy8"]
+
+[ext_resource type="Texture2D" uid="uid://cnd71f7xc6y7b" path="res://textures/music_icon.png" id="1_iql6j"]
+[ext_resource type="Texture2D" uid="uid://bl052ytggr4pe" path="res://textures/music_icon_muted.png" id="2_1ke1g"]
+
+[node name="MusicButton" type="TextureButton"]
+offset_left = 41.0
+offset_top = 500.0
+offset_right = 3085.0
+offset_bottom = 3397.0
+scale = Vector2(0.0309512, 0.0309512)
+toggle_mode = true
+texture_normal = ExtResource("1_iql6j")
+texture_pressed = ExtResource("2_1ke1g")
