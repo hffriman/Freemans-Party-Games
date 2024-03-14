@@ -1,5 +1,5 @@
-# Freeman's Funny Games
-A Collection of Small Games Created by Me with Godot Engine
+# Freeman's Party Games
+A Collection of Small Party Games: Created by Me with Godot Engine
 
 <h1>Play the HTML5 Version For Free on Itch.io</h1>
 <p>https://henrysfriman.itch.io/freemans-party-games</p>
