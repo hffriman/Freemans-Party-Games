@@ -57,7 +57,7 @@ A Collection of Small Party Games: Created by Me with Godot Engine
   <li>Generate 7-randomly picked numbers and use them however you want: for real-life Lotto or just for fun.</li>
   <li>Please note: this is just a simulation, and the numbers are generated randomly. Please be cautious if you use this for any serious or commercial purposes.</li>
 </ul>
-<div>
+<div align="center">
     <img 
         src="./screenshot_1.png" 
         alt="Screenshot of the Lottery Generator: there is a giant lottery machine with many balls rotating inside. The machine has released a ball number 2, which is rolling towards the camera. On the left side of the screen, a small 2D icon representing the lotto ball's value is shown.'" 
