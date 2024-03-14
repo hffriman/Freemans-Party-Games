@@ -5,7 +5,7 @@ A Collection of Small Party Games: Created by Me with Godot Engine
     <img src="./freemans_party_games_cover.png" alt="Screenshot of the Game's Cover Art: a purple dice and a yellow lottery ball in the dark background" width="60%" height="60%"> <br>
 </div>
 
-<h2>Play the HTML5 Version For Free on Itch.io</h2>
+<h2>Play the Browser Version For Free on Itch.io</h2>
 <p>https://henrysfriman.itch.io/freemans-party-games</p>
 
 <h2>Introduction</h2>
