@@ -4,6 +4,11 @@ var is_selected = false
 var has_moved = false
 @onready var animation = $AnimationPlayer
 
+
+## LOTTO BALL ICON
+## - Main purpose: show the value of the selected ball as an UI SPRITE
+## - Whenever the lotto machine releases a new ball, the lotto ball icon is shown on the screen
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

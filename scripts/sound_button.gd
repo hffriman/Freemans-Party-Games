@@ -3,6 +3,9 @@ extends TextureButton
 var sfx_bus = AudioServer.get_bus_index("SFX")
 @onready var soundsave = $"/root/SoundSave"
 
+## SOUND BUTTON
+## - Purpose: turns the SFX ON/OFF whenever this button is pressed in the Main Menu
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

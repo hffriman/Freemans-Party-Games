@@ -4,6 +4,18 @@ var win_sound
 var almost_sound
 var lose_sound
 
+## FINAL PHASE LAYER
+## - MAIN PURPOSE: ORCHESTRATES THE FINAL PART OF THE DICE GAME
+## - Consists of 3 parts: "Guess Number Layer", "Select Operator Layer" and "Game Over Layer"
+## - All of the functionalities of this script are activated by dicegame.gd
+## 1. When the dices are thrown and their values are shown on the screen,
+##    the "Guess Number Layer" activates: the player must type a number between 1-12
+## 2. When the player has typed their number, the "SelectOperatorCardLayer" activates:
+##    the player must draw one of the 5 operator cards (+, -, *, /, an ^)
+## 3. When the player has drawn a card, its value is then used to calculate the final score
+##    of the game: after that, the "Game Over Layer" activates, and all the details are shown
+## - Final Phase Layer also has three sound players, as well as its own rating based on the score
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	win_sound = get_node("GameOverLayer/WinSound")

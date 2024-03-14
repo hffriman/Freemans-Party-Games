@@ -23,6 +23,19 @@ var roof
 
 var status_sound_played
 
+## DICE GAME
+## - Main purpose: orchestrates the overall logic of the Dice Game
+## 1. Activates the dices' throwing functionality (a.k.a. makes them "ready")
+## 2. Constantly checks if the dices are already thrown (and not moving)
+## 3. Activates the score board's animations and sound effects 
+##    when the dices are thrown and their value is saved
+## 4. Activates the "Guess the Number" part of the Final Phase Layer
+## 5. Activates the "Select the Operator Card" part of the Final Phase Layer
+## 6. Constantly checks if the operator card is selected (and if its value is saved)
+## 7. Activates the final score calculation process of the Final Phase Layer
+## 8. Shows the "Final Score" layer of the Final Phase Layer
+## After the game, the buttons Exit and Restart become active
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_ready = true

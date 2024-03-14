@@ -3,6 +3,12 @@ extends Node2D
 var ready_to_move
 var score_is_shown
 
+## SCORE BOARD
+## - Main purpose: Shows the value of the dice after it is thrown
+## - Moves to the screen from up to down with animation
+## - After the score boards have moved completely to the screen, 
+##   the Final Phase Layer is immediately activated by the dicegame.gd
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ready_to_move = false

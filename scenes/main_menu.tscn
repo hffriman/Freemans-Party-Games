@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jb4eo"]
 [ext_resource type="PackedScene" uid="uid://csiu337t6b4ei" path="res://objects/sound_button.tscn" id="2_iof6i"]
 [ext_resource type="PackedScene" uid="uid://cf1wbtbkkii7e" path="res://objects/sound_save.tscn" id="2_kskmr"]
-[ext_resource type="Script" path="res://objects/sound_button.gd" id="3_2hg6s"]
+[ext_resource type="Script" path="res://scripts/sound_button.gd" id="3_2hg6s"]
 [ext_resource type="PackedScene" uid="uid://rojxo58kmcy8" path="res://objects/music_button.tscn" id="4_3kpei"]
-[ext_resource type="Script" path="res://objects/music_button.gd" id="5_k7uem"]
+[ext_resource type="Script" path="res://scripts/music_button.gd" id="5_k7uem"]
 
-[sub_resource type="Gradient" id="Gradient_27pux"]
+[sub_resource type="Gradient" id="Gradient_ah4gi"]
 offsets = PackedFloat32Array(0, 0.0438596, 0.587719, 0.596491, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.0896173, 0.0181642, 0.0878933, 1, 0.923747, 0.187231, 0.905978, 1, 0.931048, 0.265049, 0.91498, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_vy0t7"]
-gradient = SubResource("Gradient_27pux")
+gradient = SubResource("Gradient_ah4gi")
 
 [sub_resource type="FontVariation" id="FontVariation_fg0qd"]
 
@@ -98,7 +98,20 @@ script = ExtResource("5_k7uem")
 
 [node name="SoundSave" parent="." instance=ExtResource("2_kskmr")]
 
+[node name="Credits" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.772
+anchor_top = 0.855
+anchor_right = 0.961
+anchor_bottom = 0.958
+offset_left = 0.471985
+offset_right = -50.064
+offset_bottom = -9.80005
+scale = Vector2(1.34811, 1.34811)
+text = "CREDITS"
+
 [connection signal="pressed" from="LottoGenerator" to="." method="_on_lotto_generator_pressed"]
 [connection signal="pressed" from="DiceGame" to="." method="_on_dice_game_pressed"]
 [connection signal="pressed" from="SoundButton" to="SoundButton" method="_on_pressed"]
 [connection signal="pressed" from="MusicButton" to="MusicButton" method="_on_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

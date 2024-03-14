@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ddnqiqnwfrjiu" path="res://sounds/slot-machine-payout-81725.mp3" id="7_cach7"]
 [ext_resource type="AudioStream" uid="uid://cs3324ml6rqhr" path="res://sounds/lottery_machine_sounds.wav" id="8_0acpr"]
 [ext_resource type="Script" path="res://scripts/ball_detector.gd" id="9_hqj5j"]
-[ext_resource type="Script" path="res://scenes/DeadZone.gd" id="9_mgmm3"]
+[ext_resource type="Script" path="res://scripts/DeadZone.gd" id="9_mgmm3"]
 [ext_resource type="AudioStream" uid="uid://x6xovrdmacpo" path="res://sounds/lotto-ball-105088.mp3" id="10_o2tlx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_plqt5"]

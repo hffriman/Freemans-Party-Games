@@ -1,5 +1,7 @@
 extends Node3D
 
+## MAIN MENU
+## - Main purpose: contains the buttons for Lotto Generator, Dice Game and Credits
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,4 +17,5 @@ func _on_lotto_generator_pressed():
 func _on_dice_game_pressed():
 	get_tree().change_scene_to_file("res://scenes/dicegame.tscn")
 
-
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

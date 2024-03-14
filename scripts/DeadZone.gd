@@ -1,5 +1,8 @@
 extends Area3D
 
+## DEADZONE
+## - Main purpose: destroys all the lotto balls that become useless in the game
+## - Is used in Lotto Generator, under the lotto machine's bridge object
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +15,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.name == "Dice1" or body.name == "Dice2":
-		body.get_child(4).playing =  true
-
-func _on_body_exited(body):
-	if body.name == "Dice1" or body.name == "Dice2":
-		body.get_child(4).playing = false
+	if body.is_in_group("lotto_ball"):
+		body.queue_free()

@@ -1,6 +1,9 @@
 extends Label3D
 
 
+## QUIT
+## - Main purpose: quits the game (only used in the Desktop Version of the game)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

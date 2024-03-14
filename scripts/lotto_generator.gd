@@ -24,6 +24,15 @@ var restart_button
 
 var ball_select_sound_player
 
+## LOTTO BALL GENERATOR:
+## - Main purpose: orchestrates the overall logic of the Lotto Generator
+## - Randomizes the order of the lotto balls inside the machine
+## - Randomly selects a lotto ball, removes it from the group and releases
+##   it as a single ball with physics applied
+## - Activates the Lotto Ball Icon Layer after each selection
+## - Selects only 7 balls: after that, the Restart buttons become visible
+## - Activates the lotto ball selection only when the Pick a Ball button is pressed
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lotto_ball_rows = get_node("lotto_balls").get_children()
@@ -57,7 +66,7 @@ func _process(_delta):
 				lb.transform.origin = get_node("ReleasePoint").transform.origin
 				get_node("ReleasePoint").add_child(lb)
 				
-		if(lbr.get_index() % 2 == 2 || lbr.get_index() % 2 == 0):
+		if lbr.get_index() % 2 == 2 || lbr.get_index() % 2 == 0:
 			lbr.rotate(Vector3(0, -1.0, 0), 0.3)
 		else:
 			lbr.rotate(Vector3(0, 1.0, 0), 0.3)
@@ -70,9 +79,9 @@ func _process(_delta):
 func _input(_event):
 	if pick_button_is_pressed && lotto_turns > 0:
 		press_count = press_count + 1
-		if (lotto_ball_rows.size() > 0):
+		if lotto_ball_rows.size() > 0:
 			var random_number_1 = randi() % lotto_ball_rows.size()
-			if (lotto_ball_rows[random_number_1].get_children().size() > 0 && press_count == 1):
+			if lotto_ball_rows[random_number_1].get_children().size() > 0 && press_count == 1:
 				var random_number_2 = randi() % lotto_ball_rows[random_number_1].get_children().size()
 				var selected_ball = lotto_ball_rows[random_number_1].get_child(random_number_2)
 				selected_ball.selected = true

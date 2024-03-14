@@ -1,0 +1,175 @@
+[gd_scene load_steps=12 format=3 uid="uid://7m2fhnui4y6k"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_8b85u"]
+
+[sub_resource type="Gradient" id="Gradient_27pux"]
+offsets = PackedFloat32Array(0, 0.0438596)
+colors = PackedColorArray(0, 0, 0, 1, 0.0896173, 0.0181642, 0.0878933, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gam04"]
+gradient = SubResource("Gradient_27pux")
+
+[sub_resource type="FontVariation" id="FontVariation_6ft6s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_84i4h"]
+font = SubResource("FontVariation_6ft6s")
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ajec"]
+font = SubResource("FontVariation_6ft6s")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_i56j2"]
+font = SubResource("FontVariation_6ft6s")
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ys4j"]
+font = SubResource("FontVariation_6ft6s")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_gm8of"]
+font = SubResource("FontVariation_6ft6s")
+
+[sub_resource type="Gradient" id="Gradient_aqu30"]
+offsets = PackedFloat32Array(0.0648148)
+colors = PackedColorArray(0.763889, 0.763889, 0.763889, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6urj0"]
+gradient = SubResource("Gradient_aqu30")
+
+[node name="Credits" type="Node2D"]
+
+[node name="CreditsBackground" type="Sprite2D" parent="."]
+position = Vector2(512, 296)
+rotation = -1.5708
+scale = Vector2(2.41253, -1045.34)
+texture = SubResource("GradientTexture1D_gam04")
+
+[node name="Made By" type="Label" parent="."]
+offset_left = 181.0
+offset_top = 34.0
+offset_right = 832.0
+offset_bottom = 66.0
+text = "CREATED, DESIGNED, PROGRAMMED AND 3D-MODELED BY"
+label_settings = SubResource("LabelSettings_84i4h")
+
+[node name="HenrySFriman" type="Label" parent="."]
+offset_left = 324.0
+offset_top = 80.0
+offset_right = 815.0
+offset_bottom = 149.0
+text = "Henry S. Friman"
+label_settings = SubResource("LabelSettings_1ajec")
+
+[node name="DiceAndCardTextures" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 194.0
+offset_right = 517.0
+offset_bottom = 261.0
+text = "DICE, LOTTO BALL AND CARD TEXTURES BY"
+label_settings = SubResource("LabelSettings_i56j2")
+
+[node name="HenrySFriman3" type="Label" parent="."]
+offset_top = 226.0
+offset_right = 491.0
+offset_bottom = 293.0
+text = "HENRY S. FRIMAN"
+label_settings = SubResource("LabelSettings_2ys4j")
+horizontal_alignment = 1
+
+[node name="TableTextures BY" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 289.0
+offset_right = 532.0
+offset_bottom = 356.0
+text = "TABLE AND SOUND ICON TEXTURES BY"
+label_settings = SubResource("LabelSettings_i56j2")
+
+[node name="Photomix" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 325.0
+offset_right = 504.0
+offset_bottom = 392.0
+text = "PHOTOMIX COMPANY (PEXELS.COM)"
+label_settings = SubResource("LabelSettings_2ys4j")
+horizontal_alignment = 1
+
+[node name="Pixabay" type="Label" parent="."]
+offset_left = -9.0
+offset_top = 362.0
+offset_right = 482.0
+offset_bottom = 429.0
+text = "PIXABAY (PEXELS.COM)"
+label_settings = SubResource("LabelSettings_2ys4j")
+horizontal_alignment = 1
+
+[node name="Elionas" type="Label" parent="."]
+offset_left = -8.0
+offset_top = 400.0
+offset_right = 483.0
+offset_bottom = 467.0
+text = "ELIONAS (PIXABAY.COM)"
+label_settings = SubResource("LabelSettings_2ys4j")
+horizontal_alignment = 1
+
+[node name="MUSIC" type="Label" parent="."]
+offset_left = -11.0
+offset_top = 466.0
+offset_right = 480.0
+offset_bottom = 533.0
+text = "MUSIC"
+label_settings = SubResource("LabelSettings_i56j2")
+horizontal_alignment = 1
+
+[node name="FUNKCASINO" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 500.0
+offset_right = 517.0
+offset_bottom = 573.0
+text = "\"FUNK CASINO\" BY TOP-FLOW(PIXABAY.COM)"
+label_settings = SubResource("LabelSettings_2ys4j")
+
+[node name="SOUNDEFFECTS" type="Label" parent="."]
+offset_left = 696.0
+offset_top = 194.0
+offset_right = 1187.0
+offset_bottom = 261.0
+text = "SOUND EFFECTS"
+label_settings = SubResource("LabelSettings_i56j2")
+
+[node name="HenrySFriman6" type="Label" parent="."]
+offset_left = 428.0
+offset_top = 233.0
+offset_right = 1121.0
+offset_bottom = 724.0
+text = "\"Playful Casino Slot Machine Jackpot2\" by floraphonic
+\"Lottery Balls Sound Effect\" by AudioKid - Sound FX Library
+\"Lotto Ball\" by Pixabay
+\"Metal Ball Rolling Sound Effect\" by Sound King
+\"Slot Machine Payout\" by Pixabay
+\"Diceshake\" by Pixabay
+\"Dice\" by u_qpfzpydtro
+\"Nice Simple Knock on Door\" by Pixabay
+\"Sliding door opening and closing\" by Pixabay
+\"Flipcard\" by Pixabay
+\"turnPage\" by Pixabay
+\"Tada_fanfare A\" by Pixabay
+\"Failfare\" by Pixabay"
+label_settings = SubResource("LabelSettings_gm8of")
+horizontal_alignment = 1
+
+[node name="Button_bg" type="Sprite2D" parent="."]
+position = Vector2(50, 42.2637)
+scale = Vector2(1.35536, 0.92926)
+texture = SubResource("GradientTexture2D_6urj0")
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 63.0
+offset_bottom = 51.0
+scale = Vector2(1.35536, 1.35536)
+text = "EXIT"
+script = ExtResource("1_8b85u")
+
+[connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]

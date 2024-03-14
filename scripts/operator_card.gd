@@ -11,6 +11,12 @@ var flip2_has_played = false
 var card_sound_played = false
 var card_sound_player
 
+## OPERATOR CARD:
+## - Main purpose: it is used in the final part of the Dice Game
+## - Whenever it is selected, it will activate a flip animation (with sound effects) 
+##   and then shows its inner value (+, -, *, / or ^)
+## - The value of the card will determine the overall result of the dice game
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	card_sound_player = get_node("CardSoundPlayer")

@@ -1,13 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://b23wlc38ij0fk"]
+[gd_scene load_steps=32 format=3 uid="uid://b23wlc38ij0fk"]
 
 [ext_resource type="Script" path="res://scripts/dicegame.gd" id="1_rvvc2"]
 [ext_resource type="PackedScene" uid="uid://duphwy5wms0n7" path="res://objects/dice.tscn" id="2_niwhf"]
-[ext_resource type="Script" path="res://scripts/Roof.gd" id="3_yowlc"]
 [ext_resource type="PackedScene" uid="uid://crh1xx1v0fqt3" path="res://objects/operator_card.tscn" id="4_a2u4c"]
 [ext_resource type="Script" path="res://scripts/score_board.gd" id="4_i5627"]
 [ext_resource type="Texture2D" uid="uid://cwihc4dgalqib" path="res://textures/dice_board_hf.png" id="5_hjavp"]
 [ext_resource type="Script" path="res://scripts/final_phase_layer.gd" id="5_y0l16"]
-[ext_resource type="Script" path="res://scenes/DiceDetector.gd" id="6_xwjd1"]
+[ext_resource type="Script" path="res://scripts/DiceDetector.gd" id="6_xwjd1"]
 [ext_resource type="PackedScene" uid="uid://dykjkek2e2j3" path="res://objects/table.dae" id="8_q0fd1"]
 [ext_resource type="Texture2D" uid="uid://bhyflkpl4efon" path="res://textures/table_pexels-pixabay-301717.jpg" id="9_4tjfd"]
 [ext_resource type="AudioStream" uid="uid://b7exwc5ng7mg0" path="res://sounds/WoodKnock.wav" id="9_fwyl4"]
@@ -88,7 +87,6 @@ transform = Transform3D(-0.0569868, 0.705458, -0.706456, -0.0106285, -0.707995, 
 transform = Transform3D(20.6967, 0, 0, 0, 0.0934659, 0, 0, 0, 44.4366, 0.774786, 15.5191, -3.01341)
 visible = false
 use_collision = true
-script = ExtResource("3_yowlc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Roof"]
 mesh = SubResource("BoxMesh_1dao2")
@@ -297,60 +295,60 @@ offset_bottom = 7.80523
 scale = Vector2(1.3319, 0.949461)
 text = "ENTER"
 
-[node name="ResultLayer" type="Node2D" parent="FinalPhaseLayer"]
+[node name="SelectOperatorLCardLayer" type="Node2D" parent="FinalPhaseLayer"]
 visible = false
 position = Vector2(-5, 539)
 scale = Vector2(2.04808, 2.45745)
 
-[node name="OperatorCards" type="Node2D" parent="FinalPhaseLayer/ResultLayer"]
+[node name="OperatorCards" type="Node2D" parent="FinalPhaseLayer/SelectOperatorLCardLayer"]
 position = Vector2(67.8684, -10.987)
 scale = Vector2(0.69921, 0.69921)
 
-[node name="OperatorCard1" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+[node name="OperatorCard1" parent="FinalPhaseLayer/SelectOperatorLCardLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
 offset_left = 178.216
 offset_top = -209.979
 offset_right = 178.216
 offset_bottom = -209.979
 
-[node name="OperatorCard2" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+[node name="OperatorCard2" parent="FinalPhaseLayer/SelectOperatorLCardLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
 offset_left = 289.051
 offset_top = -209.979
 offset_right = 289.051
 offset_bottom = -209.979
 
-[node name="OperatorCard3" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+[node name="OperatorCard3" parent="FinalPhaseLayer/SelectOperatorLCardLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
 offset_left = 177.727
 offset_top = -135.795
 offset_right = 177.727
 offset_bottom = -135.795
 
-[node name="OperatorCard4" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+[node name="OperatorCard4" parent="FinalPhaseLayer/SelectOperatorLCardLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
 offset_left = 288.563
 offset_top = -134.631
 offset_right = 288.563
 offset_bottom = -134.631
 
-[node name="OperatorCard5" parent="FinalPhaseLayer/ResultLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
+[node name="OperatorCard5" parent="FinalPhaseLayer/SelectOperatorLCardLayer/OperatorCards" instance=ExtResource("4_a2u4c")]
 offset_left = 233.389
 offset_top = -173.35
 offset_right = 233.389
 offset_bottom = -173.35
 
-[node name="YouGuessedLabel" type="Label" parent="FinalPhaseLayer/ResultLayer"]
+[node name="YouGuessedLabel" type="Label" parent="FinalPhaseLayer/SelectOperatorLCardLayer"]
 offset_left = 14.6479
 offset_top = -4.88311
 offset_right = 281.648
 offset_bottom = 18.1169
 text = "You guessed: 12 "
 
-[node name="FinalScore" type="Label" parent="FinalPhaseLayer/ResultLayer"]
+[node name="FinalScore" type="Label" parent="FinalPhaseLayer/SelectOperatorLCardLayer"]
 offset_left = 351.06
 offset_top = -4.88311
 offset_right = 618.061
 offset_bottom = 18.1169
 text = "Final Score: "
 
-[node name="ChooseCard" type="Label" parent="FinalPhaseLayer/ResultLayer"]
+[node name="ChooseCard" type="Label" parent="FinalPhaseLayer/SelectOperatorLCardLayer"]
 offset_left = 153.314
 offset_top = -67.5497
 offset_right = 420.315
