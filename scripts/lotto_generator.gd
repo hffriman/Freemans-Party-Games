@@ -5,6 +5,8 @@ var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 	21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 
 	31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
 
+var loading_screen
+
 var lotto_ball_rows
 var lotto_balls = []
 var balls_ready = false
@@ -33,6 +35,9 @@ var ball_select_sound_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	loading_screen = get_node("Loading")
+	
 	lotto_ball_rows = get_node("lotto_balls").get_children()
 	lotto_points_icons = get_node("lotto_points_layer").point_icons
 	
@@ -53,6 +58,10 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	await get_tree().create_timer(1).timeout
+	loading_screen.visible = false
+	
 	
 	balls_left_label.text = "Balls Picked: " + str(balls_picked) + "/7"
 	

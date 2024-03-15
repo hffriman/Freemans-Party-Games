@@ -1,5 +1,7 @@
 extends Node3D
 
+var loading_screen
+
 var game_ready; var game_over 
 var dice1_ready; var dice2_ready
 
@@ -38,6 +40,8 @@ var status_sound_played
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	loading_screen = get_node("Loading")
 	game_ready = true
 	game_over = false
 	
@@ -75,10 +79,15 @@ func _ready():
 	dice1._play_roll_sound()
 	dice2._play_roll_sound()
 	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	
 	if game_ready:	
+		
+		await get_tree().create_timer(1).timeout
+		loading_screen.visible = false
+			
 		dice1_ready = dice1._check_readiness(dice1_ready, dice1.is_rotating)
 		dice2_ready = dice2._check_readiness(dice2_ready, dice2.is_rotating)
 		

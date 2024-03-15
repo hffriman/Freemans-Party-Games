@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://caopj3vi3udov"]
+[gd_scene load_steps=22 format=3 uid="uid://caopj3vi3udov"]
 
 [ext_resource type="Script" path="res://scripts/lotto_generator.gd" id="1_y4v4f"]
 [ext_resource type="PackedScene" uid="uid://cjsl4muxk01cc" path="res://objects/lotto_machine.tscn" id="2_2fe0u"]
@@ -11,6 +11,11 @@
 [ext_resource type="Script" path="res://scripts/ball_detector.gd" id="9_hqj5j"]
 [ext_resource type="Script" path="res://scripts/DeadZone.gd" id="9_mgmm3"]
 [ext_resource type="AudioStream" uid="uid://x6xovrdmacpo" path="res://sounds/lotto-ball-105088.mp3" id="10_o2tlx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5mscr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpsnr"]
+font_size = 40
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_plqt5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -45,6 +50,24 @@ size = Vector3(0.704224, 0.0606079, 1.57166)
 [node name="LottoGenerator" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.35075, 165, 0)
 script = ExtResource("1_y4v4f")
+
+[node name="Loading" type="CanvasLayer" parent="."]
+
+[node name="LoadingBG" type="Sprite2D" parent="Loading"]
+self_modulate = Color(0.388235, 0.00392157, 0.423529, 1)
+position = Vector2(511.75, 299.75)
+scale = Vector2(1024.5, 600.5)
+texture = SubResource("CanvasTexture_5mscr")
+
+[node name="LoadingLabel" type="Label" parent="Loading"]
+offset_left = 165.0
+offset_top = 246.0
+offset_right = 873.0
+offset_bottom = 469.0
+text = "LOADING LOTTO GENERATOR
+PLEASE WAIT..."
+label_settings = SubResource("LabelSettings_kpsnr")
+horizontal_alignment = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b23wlc38ij0fk"]
+[gd_scene load_steps=34 format=3 uid="uid://b23wlc38ij0fk"]
 
 [ext_resource type="Script" path="res://scripts/dicegame.gd" id="1_rvvc2"]
 [ext_resource type="PackedScene" uid="uid://duphwy5wms0n7" path="res://objects/dice.tscn" id="2_niwhf"]
@@ -64,6 +64,11 @@ font = SubResource("FontVariation_8t61l")
 font = SubResource("FontVariation_jkk4e")
 font_size = 55
 font_color = Color(1, 1, 0.203922, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3p021"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7fsgx"]
+font_size = 40
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amy7m"]
 metallic_specular = 0.0
@@ -440,6 +445,24 @@ offset_right = -35.8079
 offset_bottom = -20.4
 scale = Vector2(1.6573, 1.6573)
 text = "EXIT"
+
+[node name="Loading" type="CanvasLayer" parent="."]
+
+[node name="LoadingBG" type="Sprite2D" parent="Loading"]
+self_modulate = Color(0.388235, 0.00392157, 0.423529, 1)
+position = Vector2(511.75, 299.75)
+scale = Vector2(1024.5, 600.5)
+texture = SubResource("CanvasTexture_3p021")
+
+[node name="LoadingLabel" type="Label" parent="Loading"]
+offset_left = 169.0
+offset_top = 246.0
+offset_right = 877.0
+offset_bottom = 469.0
+text = "LOADING DICE GAME
+PLEASE WAIT..."
+label_settings = SubResource("LabelSettings_7fsgx")
+horizontal_alignment = 1
 
 [node name="housewalls" type="Node3D" parent="."]
 
