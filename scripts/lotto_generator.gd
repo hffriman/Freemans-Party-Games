@@ -57,7 +57,7 @@ func _ready():
 	ball_select_sound_player = get_node("BallSelectSound")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(_delta):
 	
 	await get_tree().create_timer(1).timeout
 	loading_screen.visible = false

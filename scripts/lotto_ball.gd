@@ -15,7 +15,7 @@ func _ready():
 	selected = false
 	roll_player = self.get_child(2)
 	
-func _process(_delta):
+func _physics_process(_delta):
 	if selected == true:
 		self.freeze = false
 	

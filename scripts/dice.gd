@@ -22,7 +22,7 @@ func _ready():
 	for _i in self.get_child(1).get_children():
 		number_detectors.append(_i.get_child(0))
 	
-func _process(_delta):
+func _physics_process(_delta):
 	if (is_rotating):
 		diceRB.freeze = true
 		diceRB.rotate(Vector3(0, 1.0, 0), 0.9)
