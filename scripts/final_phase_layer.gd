@@ -23,7 +23,7 @@ func _ready():
 	lose_sound = get_node("GameOverLayer/LoseSound")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _start_number_guess(guess_number):

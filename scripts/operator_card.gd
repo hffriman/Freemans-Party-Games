@@ -22,7 +22,7 @@ func _ready():
 	card_sound_player = get_node("CardSoundPlayer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if selected and !flip1_has_played:
 		self.get_child(0).visible = true
 		animation.play("flip_1")

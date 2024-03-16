@@ -36,8 +36,6 @@ var ball_select_sound_player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	loading_screen = get_node("Loading")
-	
 	lotto_ball_rows = get_node("lotto_balls").get_children()
 	lotto_points_icons = get_node("lotto_points_layer").point_icons
 	
@@ -58,10 +56,6 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	
-	await get_tree().create_timer(1).timeout
-	loading_screen.visible = false
-	
 	
 	balls_left_label.text = "Balls Picked: " + str(balls_picked) + "/7"
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4aaql8kdi01a"]
+[gd_scene load_steps=17 format=3 uid="uid://4aaql8kdi01a"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jb4eo"]
 [ext_resource type="PackedScene" uid="uid://csiu337t6b4ei" path="res://objects/sound_button.tscn" id="2_iof6i"]
@@ -26,6 +26,16 @@ font_size = 40
 font = SubResource("FontVariation_k4t3r")
 font_size = 33
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jne33"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxkt5"]
+font_size = 40
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_riuji"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5bxrq"]
+font_size = 40
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_jb4eo")
@@ -87,8 +97,7 @@ offset_left = 0.207977
 offset_top = -0.00012207
 offset_right = 0.431885
 offset_bottom = -0.200012
-text = "Version 1.1
-"
+text = "Version 1.2"
 label_settings = SubResource("LabelSettings_43p0x")
 
 [node name="SoundButton" parent="." instance=ExtResource("2_iof6i")]
@@ -110,6 +119,44 @@ offset_right = -50.064
 offset_bottom = -9.80005
 scale = Vector2(1.34811, 1.34811)
 text = "CREDITS"
+
+[node name="LoadingDiceGameLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LoadingBG" type="Sprite2D" parent="LoadingDiceGameLayer"]
+self_modulate = Color(0.388235, 0.00392157, 0.423529, 1)
+position = Vector2(511.5, 304.5)
+scale = Vector2(1085, 653)
+texture = SubResource("CanvasTexture_jne33")
+
+[node name="LoadingLabel" type="Label" parent="LoadingDiceGameLayer"]
+offset_left = 169.0
+offset_top = 246.0
+offset_right = 877.0
+offset_bottom = 469.0
+text = "LOADING DICE GAME
+PLEASE WAIT..."
+label_settings = SubResource("LabelSettings_bxkt5")
+horizontal_alignment = 1
+
+[node name="LoadingLottoGeneratorLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LoadingBG" type="Sprite2D" parent="LoadingLottoGeneratorLayer"]
+self_modulate = Color(0.388235, 0.00392157, 0.423529, 1)
+position = Vector2(511.75, 299.75)
+scale = Vector2(1024.5, 600.5)
+texture = SubResource("CanvasTexture_riuji")
+
+[node name="LoadingLabel" type="Label" parent="LoadingLottoGeneratorLayer"]
+offset_left = 165.0
+offset_top = 246.0
+offset_right = 873.0
+offset_bottom = 469.0
+text = "LOADING LOTTO GENERATOR
+PLEASE WAIT..."
+label_settings = SubResource("LabelSettings_5bxrq")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="LottoGenerator" to="." method="_on_lotto_generator_pressed"]
 [connection signal="pressed" from="DiceGame" to="." method="_on_dice_game_pressed"]
